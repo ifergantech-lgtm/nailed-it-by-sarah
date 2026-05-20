@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nailed-it-by-sarah.vercel.app/sitemap.xml
