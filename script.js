@@ -52,6 +52,18 @@ const T = {
     'contact.address':   'רחוב העצמאות 1, גן יבנה',
     'contact.hours':     'א\'–ה\' · 09:00–21:00',
     'contact.cta':       'כתבי לנו בווצאפ',
+    'faq.eyebrow':       'שאלות נפוצות',
+    'faq.title':         'כל מה שרצית לדעת',
+    'faq.q1':            "כמה עולה מניקור ג'ל בגן יבנה?",
+    'faq.a1':            "מניקור עם לק ג'ל אצל Nailed it by Sarah עולה ₪100. מניקור בסיסי ₪80. ניתן לקבוע תור בווצאפ: 053-272-7006.",
+    'faq.q2':            'מה שעות הפעילות של הסטודיו?',
+    'faq.a2':            'הסטודיו פועל ראשון עד חמישי, 09:00–21:00.',
+    'faq.q3':            'איך מזמינים תור?',
+    'faq.a3':            'קובעים תור בווצאפ למספר 053-272-7006 או דרך אינסטגרם @nailed_it_by.sarah.',
+    'faq.q4':            'מה זה מבנה אנטומי?',
+    'faq.a4':            'בנייה אנטומית מוסיפה אורך וצורה לציפורן בעזרת ג\'ל — החל מ-₪130.',
+    'faq.q5':            'איפה הסטודיו?',
+    'faq.a5':            'רחוב העצמאות 1, גן יבנה. ניתן לראות את המיקום במפה בתחתית האתר.',
     'footer.rights':     'כל הזכויות שמורות.',
   },
 
@@ -107,6 +119,18 @@ const T = {
     'contact.address':   'Ha-Atsma\'ut St 1, Gan Yavne',
     'contact.hours':     'Sun–Thu · 09:00–21:00',
     'contact.cta':       'Message on WhatsApp',
+    'faq.eyebrow':       'FAQ',
+    'faq.title':         'Everything You Need to Know',
+    'faq.q1':            'How much does a gel manicure cost in Gan Yavne?',
+    'faq.a1':            'Gel manicure at Nailed it by Sarah costs ₪100. Basic manicure ₪80. Book via WhatsApp: 053-272-7006.',
+    'faq.q2':            "What are the studio's opening hours?",
+    'faq.a2':            'The studio is open Sunday to Thursday, 09:00–21:00.',
+    'faq.q3':            'How do I book an appointment?',
+    'faq.a3':            'Book via WhatsApp at 053-272-7006 or through Instagram @nailed_it_by.sarah.',
+    'faq.q4':            'What is an anatomic nail build?',
+    'faq.a4':            'Anatomic build adds length and shape to the nail using gel — starting from ₪130.',
+    'faq.q5':            'Where is the studio?',
+    'faq.a5':            "1 Ha-Atsma'ut St, Gan Yavne. See the map at the bottom of the page.",
     'footer.rights':     'All rights reserved.',
   },
 
@@ -162,6 +186,18 @@ const T = {
     'contact.address':   'Ha-Atsma\'ut St 1, Gan Yavne',
     'contact.hours':     'Dim–Jeu · 09h–21h',
     'contact.cta':       'Écrire sur WhatsApp',
+    'faq.eyebrow':       'FAQ',
+    'faq.title':         'Tout ce que vous voulez savoir',
+    'faq.q1':            'Combien coûte une manucure gel à Gan Yavne ?',
+    'faq.a1':            'La manucure gel chez Nailed it by Sarah coûte ₪100. Manucure basique ₪80. Réservez via WhatsApp : 053-272-7006.',
+    'faq.q2':            'Quels sont les horaires du studio ?',
+    'faq.a2':            'Le studio est ouvert du dimanche au jeudi, de 09h00 à 21h00.',
+    'faq.q3':            'Comment prendre rendez-vous ?',
+    'faq.a3':            'Réservez via WhatsApp au 053-272-7006 ou sur Instagram @nailed_it_by.sarah.',
+    'faq.q4':            "Qu'est-ce qu'une construction anatomique ?",
+    'faq.a4':            "La construction anatomique allonge et façonne l'ongle avec du gel — à partir de ₪130.",
+    'faq.q5':            'Où se trouve le studio ?',
+    'faq.a5':            "1 rue Ha-Atsma'ut, Gan Yavne. Voir la carte en bas de la page.",
     'footer.rights':     'Tous droits réservés.',
   },
 
@@ -217,6 +253,18 @@ const T = {
     'contact.address':   'Ha-Atsma\'ut St 1, Gan Yavne',
     'contact.hours':     'Dom–Jue · 09:00–21:00',
     'contact.cta':       'Escribir por WhatsApp',
+    'faq.eyebrow':       'Preguntas frecuentes',
+    'faq.title':         'Todo lo que necesitas saber',
+    'faq.q1':            '¿Cuánto cuesta una manicura de gel en Gan Yavne?',
+    'faq.a1':            'La manicura de gel en Nailed it by Sarah cuesta ₪100. Manicura básica ₪80. Reserva por WhatsApp: 053-272-7006.',
+    'faq.q2':            '¿Cuál es el horario del estudio?',
+    'faq.a2':            'El estudio abre de domingo a jueves, de 09:00 a 21:00.',
+    'faq.q3':            '¿Cómo reservo una cita?',
+    'faq.a3':            'Reserva por WhatsApp al 053-272-7006 o por Instagram @nailed_it_by.sarah.',
+    'faq.q4':            '¿Qué es una construcción anatómica?',
+    'faq.a4':            'La construcción anatómica añade largo y forma a la uña con gel — desde ₪130.',
+    'faq.q5':            '¿Dónde está el estudio?',
+    'faq.a5':            "Calle Ha-Atsma'ut 1, Gan Yavne. Ver el mapa al final de la página.",
     'footer.rights':     'Todos los derechos reservados.',
   },
 
@@ -272,6 +320,18 @@ const T = {
     'contact.address':   'شارع العصماعوت 1، غان يفني',
     'contact.hours':     'أح–خم · 09:00–21:00',
     'contact.cta':       'راسلي عبر واتساب',
+    'faq.eyebrow':       'الأسئلة الشائعة',
+    'faq.title':         'كل ما تريد معرفته',
+    'faq.q1':            'كم تكلف مانيكير الجل في جان يفني؟',
+    'faq.a1':            'مانيكير الجل في Nailed it by Sarah بسعر ₪100. المانيكير الأساسي ₪80. احجزي عبر واتساب: 053-272-7006.',
+    'faq.q2':            'ما هي ساعات العمل؟',
+    'faq.a2':            'يعمل الاستوديو من الأحد إلى الخميس، من 09:00 حتى 21:00.',
+    'faq.q3':            'كيف أحجز موعداً؟',
+    'faq.a3':            'احجزي عبر واتساب 053-272-7006 أو عبر انستغرام @nailed_it_by.sarah.',
+    'faq.q4':            'ما هو البناء التشريحي للأظافر؟',
+    'faq.a4':            'البناء التشريحي يضيف طولاً وشكلاً للظفر باستخدام الجل — ابتداءً من ₪130.',
+    'faq.q5':            'أين يقع الاستوديو؟',
+    'faq.a5':            'شارع هاعتسمائوت 1، جان يفني. شاهدي الخريطة في أسفل الصفحة.',
     'footer.rights':     'جميع الحقوق محفوظة.',
   },
 };
@@ -327,6 +387,111 @@ function setLang(lang) {
 
   renderReviews();
   localStorage.setItem('lang', lang);
+
+  // Re-apply admin data overrides after language switch (translations
+  // may have overwritten dynamic fields like address, hours, prices).
+  if (window.SITE_DATA) applySiteData();
+}
+
+
+/* ===== DATA OVERLAY (from admin-editable data.json) ===== */
+window.SITE_DATA = null;
+
+async function loadSiteData() {
+  try {
+    const r = await fetch('/data.json', { cache: 'no-store' });
+    if (!r.ok) return;
+    window.SITE_DATA = await r.json();
+    applySiteData();
+  } catch (e) { /* keep hardcoded fallback */ }
+}
+
+function applySiteData() {
+  const d = window.SITE_DATA;
+  if (!d) return;
+
+  // Phone — tel:, wa.me, and visible display
+  if (d.phone && d.phone.intl) {
+    const intl = d.phone.intl.replace(/^\+/, '');
+    document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+      a.href = 'tel:' + d.phone.intl;
+      if (a.classList.contains('visit-value')) a.textContent = d.phone.display || d.phone.intl;
+    });
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(a => {
+      a.href = 'https://wa.me/' + intl;
+    });
+  }
+
+  // Instagram handle
+  if (d.instagram) {
+    const igUrl = 'https://www.instagram.com/' + d.instagram + '/';
+    document.querySelectorAll('a[href*="instagram.com/"]').forEach(a => {
+      const href = a.getAttribute('href') || '';
+      if (href.includes('/p/') || href.includes('/reel/')) return; // leave posts/reels alone
+      a.href = igUrl;
+      const strong = a.querySelector('strong');
+      if (strong && strong.textContent.includes('@')) strong.textContent = '@' + d.instagram;
+    });
+  }
+
+  // Hours display
+  if (d.hours && d.hours.display) {
+    const hoursEl = document.querySelector('[data-i18n="contact.hours"]');
+    if (hoursEl) hoursEl.textContent = d.hours.display;
+  }
+
+  // Address display in #contact
+  if (d.address && d.address.street && d.address.city) {
+    const addrEl = document.querySelector('[data-i18n="contact.address"]');
+    if (addrEl) addrEl.textContent = d.address.street + ', ' + d.address.city;
+  }
+
+  // Map iframe
+  if (d.address && d.address.mapsQuery) {
+    const mapIframe = document.querySelector('.visit-map-wrap iframe');
+    if (mapIframe) {
+      const newSrc = 'https://maps.google.com/maps?q=' + encodeURIComponent(d.address.mapsQuery) + '&output=embed';
+      if (mapIframe.src !== newSrc) mapIframe.src = newSrc;
+    }
+  }
+
+  // Prices in service list
+  if (Array.isArray(d.services)) {
+    d.services.forEach(s => {
+      if (!s.i18nKey || !s.price) return;
+      const nameEl = document.querySelector('[data-i18n="' + s.i18nKey + '"]');
+      if (!nameEl) return;
+      const row = nameEl.closest('.price-row');
+      if (!row) return;
+      const amount = row.querySelector('.price-amount');
+      if (amount) amount.textContent = s.price;
+    });
+  }
+
+  // Reels
+  if (Array.isArray(d.reels)) {
+    const reelFrames = document.querySelectorAll('.reel-frame');
+    d.reels.forEach((shortcode, i) => {
+      if (!reelFrames[i] || !shortcode) return;
+      const newSrc = 'https://www.instagram.com/reel/' + shortcode + '/embed/';
+      if (reelFrames[i].src !== newSrc) reelFrames[i].src = newSrc;
+    });
+  }
+
+  // Gallery — replace tile with Instagram embed when shortcode is set
+  if (Array.isArray(d.gallery)) {
+    d.gallery.forEach((g, i) => {
+      const cls = 'ig-tile-' + (i + 1);
+      const tile = document.querySelector('.' + cls);
+      if (!tile || !g.shortcode) return;
+      if (tile.tagName === 'IFRAME' || tile.querySelector('iframe')) return; // already done
+      const wrap = document.createElement('div');
+      wrap.className = tile.className.replace('ig-tile', 'ig-embed');
+      wrap.style.cssText = 'overflow:hidden; border-radius:18px; background:#000;';
+      wrap.innerHTML = '<iframe src="https://www.instagram.com/p/' + g.shortcode + '/embed/" frameborder="0" scrolling="no" allowtransparency="true" allow="encrypted-media" loading="lazy" style="width:100%; height:100%; border:0; display:block;"></iframe>';
+      tile.parentNode.replaceChild(wrap, tile);
+    });
+  }
 }
 
 
@@ -519,7 +684,62 @@ if (backToTop) {
 document.getElementById('year').textContent = new Date().getFullYear();
 
 
+/* ===== STICKY BOOKING BAR ===== */
+(function () {
+  const bar = document.createElement('a');
+  bar.href = 'https://wa.me/972532727006';
+  bar.target = '_blank';
+  bar.rel = 'noopener';
+  bar.className = 'sticky-book-bar';
+  bar.setAttribute('aria-label', 'קבעי תור בווצאפ');
+  bar.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> <span data-i18n="nav.book">הזמינו עכשיו</span>';
+  document.body.appendChild(bar);
+
+  function onBarScroll() {
+    const visible = window.scrollY > 300;
+    bar.classList.toggle('visible', visible);
+    document.body.classList.toggle('bar-visible', visible);
+  }
+  window.addEventListener('scroll', onBarScroll, { passive: true });
+  onBarScroll();
+})();
+
+
+/* ===== LIGHTBOX KEYBOARD TRAP ===== */
+(function () {
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+
+  const FOCUSABLE_IDS = ['lightboxClose', 'lightboxPrev', 'lightboxNext', 'lightboxIgLink'];
+
+  function trapFocus(e) {
+    if (!lightbox.classList.contains('is-open')) return;
+    const focusable = FOCUSABLE_IDS.map(id => document.getElementById(id)).filter(Boolean);
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.key === 'Tab') {
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+  }
+
+  document.addEventListener('keydown', trapFocus);
+
+  const observer = new MutationObserver(() => {
+    if (lightbox.classList.contains('is-open')) {
+      const closeBtn = document.getElementById('lightboxClose');
+      if (closeBtn) closeBtn.focus();
+    }
+  });
+  observer.observe(lightbox, { attributes: true, attributeFilter: ['class'] });
+})();
+
+
 /* ===== INIT ===== */
 renderReviews();
 const savedLang = localStorage.getItem('lang') || 'he';
 setLang(savedLang);
+loadSiteData();

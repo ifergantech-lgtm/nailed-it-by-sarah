@@ -12,6 +12,14 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://nailed-it-by-sarah.vercel.app/">
 
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="he"        href="https://nailed-it-by-sarah.vercel.app/?lang=he" />
+  <link rel="alternate" hreflang="en"        href="https://nailed-it-by-sarah.vercel.app/?lang=en" />
+  <link rel="alternate" hreflang="fr"        href="https://nailed-it-by-sarah.vercel.app/?lang=fr" />
+  <link rel="alternate" hreflang="es"        href="https://nailed-it-by-sarah.vercel.app/?lang=es" />
+  <link rel="alternate" hreflang="ar"        href="https://nailed-it-by-sarah.vercel.app/?lang=ar" />
+  <link rel="alternate" hreflang="x-default" href="https://nailed-it-by-sarah.vercel.app/" />
+
   <!-- Geo / Local -->
   <meta name="geo.region" content="IL">
   <meta name="geo.placename" content="גן יבנה, ישראל">
@@ -88,9 +96,57 @@
     "areaServed": {
       "@type": "City",
       "name": "גן יבנה"
+    },
+    "knowsAbout": ["Gel Manicure","Nail Art","Anatomic Nail Build","French Manicure","Gel Fill","Nail Removal","Nail Design"],
+    "slogan": "כל פרט הופך לאמנות",
+    "foundingDate": "2020"
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Nailed it by Sarah",
+    "url": "https://nailed-it-by-sarah.vercel.app",
+    "inLanguage": ["he","en","fr","es","ar"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://nailed-it-by-sarah.vercel.app/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
   }
   </script>
+
+  <!-- JSON-LD: Person (Sarah) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sarah M",
+    "jobTitle": "Nail Technician",
+    "worksFor": { "@type": "NailSalon", "name": "Nailed it by Sarah" },
+    "address": { "@type": "PostalAddress", "addressLocality": "גן יבנה", "addressCountry": "IL" },
+    "sameAs": ["https://www.instagram.com/nailed_it_by.sarah/"]
+  }
+  </script>
+
+  <!-- JSON-LD: Speakable (voice search) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Nailed it by Sarah — מניקור ג'ל בגן יבנה",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".hero-title", ".hero-sub", "#faq"]
+    }
+  }
+  </script>
+
+  <!-- Preload critical image -->
+  <link rel="preload" as="image" href="/images/nail3.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -292,14 +348,14 @@
       How: On Instagram, open a post → right-click the image → "Open image in new tab" → copy that URL
     -->
     <div class="ig-grid">
-      <button class="ig-tile ig-tile-1 reveal" aria-label="צפייה בתמונה 1" data-img="images/nail1.jpg" data-idx="0"></button>
-      <button class="ig-tile ig-tile-2 reveal" aria-label="צפייה בתמונה 2" data-img="images/nail2.jpg" data-idx="1"></button>
-      <button class="ig-tile ig-tile-3 reveal" aria-label="צפייה בתמונה 3" data-img="images/nail3.jpg" data-idx="2"></button>
-      <button class="ig-tile ig-tile-4 reveal" aria-label="צפייה בתמונה 4" data-img="images/nail4.jpg" data-idx="3"></button>
-      <button class="ig-tile ig-tile-5 reveal" aria-label="צפייה בתמונה 5" data-img="images/nail5.jpg" data-idx="4"></button>
-      <button class="ig-tile ig-tile-6 reveal" aria-label="צפייה בתמונה 6" data-img="images/nail6.jpg" data-idx="5"></button>
-      <button class="ig-tile ig-tile-7 reveal" aria-label="צפייה בתמונה 7" data-img="images/nail7.jpg" data-idx="6"></button>
-      <button class="ig-tile ig-tile-8 reveal" aria-label="צפייה בתמונה 8" data-img="images/nail8.jpg" data-idx="7"></button>
+      <button class="ig-tile ig-tile-1 reveal" aria-label="מניקור ג'ל קלאסי בגן יבנה — Nailed it by Sarah" data-img="images/nail1.jpg" data-idx="0"></button>
+      <button class="ig-tile ig-tile-2 reveal" aria-label="עיצוב ציפורניים — לק ג'ל עמיד גן יבנה" data-img="images/nail2.jpg" data-idx="1"></button>
+      <button class="ig-tile ig-tile-3 reveal" aria-label="נייל ארט — בנייה אנטומית גן יבנה" data-img="images/nail3.jpg" data-idx="2"></button>
+      <button class="ig-tile ig-tile-4 reveal" aria-label="מילוי בג'ל — סטודיו ציפורניים גן יבנה" data-img="images/nail4.jpg" data-idx="3"></button>
+      <button class="ig-tile ig-tile-5 reveal" aria-label="Gel manicure design — Nailed it by Sarah Gan Yavne" data-img="images/nail5.jpg" data-idx="4"></button>
+      <button class="ig-tile ig-tile-6 reveal" aria-label="Nail art — anatomic build Gan Yavne Israel" data-img="images/nail6.jpg" data-idx="5"></button>
+      <button class="ig-tile ig-tile-7 reveal" aria-label="French manicure gel — professional nail studio Gan Yavne" data-img="images/nail7.jpg" data-idx="6"></button>
+      <button class="ig-tile ig-tile-8 reveal" aria-label="Nail extension — gel fill Nailed it by Sarah" data-img="images/nail8.jpg" data-idx="7"></button>
     </div>
 
     <div class="ig-cta reveal">
@@ -358,6 +414,45 @@
 </section>
 
 
+<!-- ===== FAQ ===== -->
+<section id="faq" class="section faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="faq.eyebrow">שאלות נפוצות</p>
+      <h2 data-i18n="faq.title">כל מה שרצית לדעת</h2>
+    </div>
+    <div class="faq-list reveal">
+
+      <details class="faq-item">
+        <summary data-i18n="faq.q1">כמה עולה מניקור ג'ל בגן יבנה?</summary>
+        <p data-i18n="faq.a1">מניקור עם לק ג'ל אצל Nailed it by Sarah עולה ₪100. מניקור בסיסי ₪80. ניתן לקבוע תור בווצאפ: 053-272-7006.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faq.q2">מה שעות הפעילות של הסטודיו?</summary>
+        <p data-i18n="faq.a2">הסטודיו פועל ראשון עד חמישי, 09:00–21:00.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faq.q3">איך מזמינים תור?</summary>
+        <p data-i18n="faq.a3">קובעים תור בווצאפ למספר 053-272-7006 או דרך אינסטגרם @nailed_it_by.sarah.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faq.q4">מה זה מבנה אנטומי?</summary>
+        <p data-i18n="faq.a4">בנייה אנטומית מוסיפה אורך וצורה לציפורן בעזרת ג'ל — החל מ-₪130.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faq.q5">איפה הסטודיו?</summary>
+        <p data-i18n="faq.a5">רחוב העצמאות 1, גן יבנה. ניתן לראות את המיקום במפה בתחתית האתר.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- ===== CONTACT ===== -->
 <section id="contact" class="section visit">
   <div class="container">
@@ -396,7 +491,7 @@
         <iframe
           src="https://maps.google.com/maps?q=Ha-Atsma%27ut+St+1+Gan+Yavne+Israel&output=embed"
           width="100%" height="100%" style="border:0;" allowfullscreen=""
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" decoding="async"
           title="מיקום הסטודיו"></iframe>
       </div>
 
@@ -461,6 +556,55 @@
 <a href="https://wa.me/972532727006" class="fab-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "כמה עולה מניקור ג'ל בגן יבנה?",
+      "acceptedAnswer": { "@type": "Answer", "text": "מניקור עם לק ג'ל אצל Nailed it by Sarah עולה ₪100. מניקור בסיסי ₪80. ניתן לקבוע תור בווצאפ: 053-272-7006." }
+    },
+    {
+      "@type": "Question",
+      "name": "מה שעות הפעילות של Nailed it by Sarah?",
+      "acceptedAnswer": { "@type": "Answer", "text": "הסטודיו פועל ראשון עד חמישי, 09:00–21:00." }
+    },
+    {
+      "@type": "Question",
+      "name": "איך מזמינים תור ל-Nailed it by Sarah?",
+      "acceptedAnswer": { "@type": "Answer", "text": "קובעים תור בווצאפ למספר 053-272-7006 או דרך אינסטגרם @nailed_it_by.sarah." }
+    },
+    {
+      "@type": "Question",
+      "name": "מה זה מבנה אנטומי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "בנייה אנטומית מוסיפה אורך וצורה לציפורן בעזרת ג'ל — החל מ-₪130 אצל שרה בגן יבנה." }
+    },
+    {
+      "@type": "Question",
+      "name": "איפה נמצא סטודיו Nailed it by Sarah?",
+      "acceptedAnswer": { "@type": "Answer", "text": "רחוב העצמאות 1, גן יבנה. ניתן לראות את המיקום במפה בתחתית האתר." }
+    }
+  ]
+}
+</script>
+
+<!-- JSON-LD: Services -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Service", "name": "מניקור עם לק ג'ל", "description": "מניקור מקצועי עם לק ג'ל עמיד בגן יבנה", "offers": { "@type": "Offer", "price": "100", "priceCurrency": "ILS" }, "provider": { "@type": "NailSalon", "name": "Nailed it by Sarah" }, "areaServed": "גן יבנה" },
+    { "@type": "Service", "name": "מבנה אנטומי", "description": "בנייה אנטומית לציפורניים בג'ל עם הוספת אורך וצורה", "offers": { "@type": "Offer", "price": "130", "priceCurrency": "ILS" }, "provider": { "@type": "NailSalon", "name": "Nailed it by Sarah" }, "areaServed": "גן יבנה" },
+    { "@type": "Service", "name": "מילוי בג'ל", "description": "מילוי ג'ל על בנייה קיימת — תחזוקה שוטפת", "offers": { "@type": "Offer", "price": "150", "priceCurrency": "ILS" }, "provider": { "@type": "NailSalon", "name": "Nailed it by Sarah" }, "areaServed": "גן יבנה" },
+    { "@type": "Service", "name": "בנייה חדשה", "description": "בנייה חדשה מלאה על ציפורניים טבעיות", "offers": { "@type": "Offer", "price": "250", "priceCurrency": "ILS" }, "provider": { "@type": "NailSalon", "name": "Nailed it by Sarah" }, "areaServed": "גן יבנה" },
+    { "@type": "Service", "name": "הסרה", "description": "הסרה מקצועית ועדינה של לק ג'ל או בנייה", "offers": { "@type": "Offer", "price": "50", "priceCurrency": "ILS" }, "provider": { "@type": "NailSalon", "name": "Nailed it by Sarah" }, "areaServed": "גן יבנה" }
+  ]
+}
+</script>
 
 <script src="script.js"></script>
 </body>

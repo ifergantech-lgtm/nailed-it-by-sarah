@@ -36,7 +36,7 @@
 
 /* ===== RESET ===== */
 *, *::before, *::after { box-sizing: border-box; }
-html  { scroll-behavior: smooth; }
+html  { scroll-behavior: smooth; scroll-padding-top: 72px; }
 body  { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img   { max-width: 100%; display: block; }
 a     { color: inherit; text-decoration: none; }
@@ -683,4 +683,85 @@ a.visit-value:hover { border-bottom-color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   html { scroll-behavior: auto; }
+}
+
+
+/* ===== FAQ ===== */
+.faq { background: var(--cream-2); }
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--blush);
+  padding: 0;
+}
+.faq-item:first-child { border-top: 1px solid var(--blush); }
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--rose-deep);
+  flex-shrink: 0;
+  transition: transform .25s;
+}
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p {
+  margin: 0;
+  padding: 0 0 1.25rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+
+/* ===== GALLERY — touch :active feedback ===== */
+@media (hover: none) {
+  .ig-tile:active {
+    transform: scale(0.97);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+
+/* ===== FAB / footer CTA overlap fix (very narrow mobile) ===== */
+@media (max-width: 400px) {
+  .fab-whatsapp { bottom: 1.5rem; inset-inline-end: 1rem; }
+  #contact .btn-primary { margin-bottom: 5rem; }
+}
+
+
+/* ===== STICKY BOOKING BAR (mobile) ===== */
+.sticky-book-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 52px;
+  background: linear-gradient(135deg, var(--rose-deep) 0%, var(--rose) 100%);
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 45;
+  text-decoration: none;
+  box-shadow: 0 -2px 16px rgba(185,122,107,.35);
+  font-family: var(--sans);
+  letter-spacing: 0.02em;
+}
+@media (max-width: 768px) {
+  .sticky-book-bar.visible { display: flex; }
+  body.bar-visible .fab-whatsapp { display: none; }
 }
