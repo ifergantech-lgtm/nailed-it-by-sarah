@@ -4,15 +4,33 @@
     "display": "053-272-7006"
   },
   "address": {
-    "street": "רחוב העצמאות 1",
-    "city": "גן יבנה",
+    "street": {
+      "he": "רחוב העצמאות 1",
+      "en": "HaAtzma'ut St 1",
+      "fr": "Rue HaAtzma'ut 1",
+      "es": "Calle HaAtzma'ut 1",
+      "ar": "شارع هاعتسماؤوت 1"
+    },
+    "city": {
+      "he": "גן יבנה",
+      "en": "Gan Yavne",
+      "fr": "Gan Yavne",
+      "es": "Gan Yavne",
+      "ar": "غان يفنه"
+    },
     "lat": 31.7895,
     "lng": 34.7031,
     "mapsQuery": "רחוב העצמאות 1, גן יבנה",
     "mapsLink": "https://share.google/T1nJPHZBuAVe99DQA"
   },
   "hours": {
-    "display": "א'–ה' · 09:00–21:00",
+    "display": {
+      "he": "א'–ה' · 09:00–21:00",
+      "en": "Sun–Thu · 09:00–21:00",
+      "fr": "Dim–Jeu · 09:00–21:00",
+      "es": "Dom–Jue · 09:00–21:00",
+      "ar": "الأحد–الخميس · 09:00–21:00"
+    },
     "opens": "09:00",
     "closes": "21:00",
     "days": [

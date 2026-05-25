@@ -406,9 +406,18 @@ async function loadSiteData() {
   } catch (e) { /* keep hardcoded fallback */ }
 }
 
+function pickLang(v, lang) {
+  // String → return as-is (backward compat).
+  // Object → pick current language, falling back en → he → first available.
+  if (v == null) return '';
+  if (typeof v === 'string') return v;
+  return v[lang] || v.en || v.he || Object.values(v).find(Boolean) || '';
+}
+
 function applySiteData() {
   const d = window.SITE_DATA;
   if (!d) return;
+  const lang = document.documentElement.lang || 'he';
 
   // Phone — tel:, wa.me, and visible display
   if (d.phone && d.phone.intl) {
@@ -436,14 +445,17 @@ function applySiteData() {
 
   // Hours display
   if (d.hours && d.hours.display) {
+    const hoursStr = pickLang(d.hours.display, lang);
     const hoursEl = document.querySelector('[data-i18n="contact.hours"]');
-    if (hoursEl) hoursEl.textContent = d.hours.display;
+    if (hoursEl && hoursStr) hoursEl.textContent = hoursStr;
   }
 
   // Address display in #contact
   if (d.address && d.address.street && d.address.city) {
+    const street = pickLang(d.address.street, lang);
+    const city   = pickLang(d.address.city, lang);
     const addrEl = document.querySelector('[data-i18n="contact.address"]');
-    if (addrEl) addrEl.textContent = d.address.street + ', ' + d.address.city;
+    if (addrEl && street && city) addrEl.textContent = street + ', ' + city;
   }
 
   // Map iframe

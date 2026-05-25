@@ -218,6 +218,32 @@
     .toast.show { opacity: 1; transform: translate(-50%, 4px); }
     .toast.err { background: var(--err); }
 
+    /* Multilingual sub-inputs */
+    .lang-group { margin-top: 6px; }
+    .lang-row {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 8px; align-items: center;
+      margin-bottom: 6px;
+    }
+    .lang-tag {
+      font-size: .72rem; font-weight: 600;
+      color: var(--rose-deep);
+      text-transform: uppercase; letter-spacing: .08em;
+      text-align: center;
+      padding: 6px 0;
+      background: var(--cream-2); border-radius: 8px;
+    }
+    .lang-row input { padding: 9px 12px; font-size: .95rem; }
+    .lang-toggle {
+      background: transparent; border: 0;
+      color: var(--rose-deep); font-size: .82rem;
+      cursor: pointer; padding: 6px 0; font-family: inherit;
+      text-decoration: underline; text-underline-offset: 3px;
+    }
+    .other-langs { display: none; }
+    .other-langs.open { display: block; }
+
     /* Hide stuff before auth */
     .gated { display: none; }
     body.authed .login { display: none; }
@@ -274,23 +300,26 @@
     <!-- Address -->
     <section class="card">
       <div class="card-head"><span class="ico">📍</span><h2>Address</h2></div>
+
       <div class="field">
-        <label for="street">Street &amp; number</label>
-        <input id="street" type="text" placeholder="HaAtzma'ut 1">
+        <label>Street &amp; number</label>
+        <div class="lang-group" id="streetLangs"></div>
       </div>
+
       <div class="field">
-        <label for="city">City</label>
-        <input id="city" type="text" placeholder="Gan Yavne">
+        <label>City</label>
+        <div class="lang-group" id="cityLangs"></div>
       </div>
-      <small style="color:var(--ink-soft); font-size:.78rem;">The map pin updates automatically.</small>
+
+      <small style="color:var(--ink-soft); font-size:.78rem;">Fill in English — that's what most visitors see. Other languages are optional but recommended for tourists.<br>The map pin updates automatically from the English address.</small>
     </section>
 
     <!-- Hours -->
     <section class="card">
       <div class="card-head"><span class="ico">🕐</span><h2>Opening hours</h2></div>
       <div class="field">
-        <label for="hoursDisplay">Display text</label>
-        <input id="hoursDisplay" type="text" placeholder="Sun–Thu · 09:00–21:00">
+        <label>Display text</label>
+        <div class="lang-group" id="hoursDisplayLangs"></div>
       </div>
       <div class="row2">
         <div class="field">
@@ -358,6 +387,61 @@
   const $ = (id) => document.getElementById(id);
   let DATA = null;
 
+  // Languages in display order. EN first because that's the primary admin lang.
+  const LANGS = [
+    { code: 'en', label: 'EN', placeholder: { street: "HaAtzma'ut St 1", city: "Gan Yavne",  hoursDisplay: "Sun–Thu · 09:00–21:00" } },
+    { code: 'he', label: 'HE', placeholder: { street: "רחוב העצמאות 1",  city: "גן יבנה",   hoursDisplay: "א'–ה' · 09:00–21:00" } },
+    { code: 'fr', label: 'FR', placeholder: { street: "Rue HaAtzma'ut 1", city: "Gan Yavne", hoursDisplay: "Dim–Jeu · 09:00–21:00" } },
+    { code: 'es', label: 'ES', placeholder: { street: "Calle HaAtzma'ut 1", city: "Gan Yavne", hoursDisplay: "Dom–Jue · 09:00–21:00" } },
+    { code: 'ar', label: 'AR', placeholder: { street: "شارع هاعتسماؤوت 1", city: "غان يفنه",  hoursDisplay: "الأحد–الخميس · 09:00–21:00" } }
+  ];
+
+  // Normalize a value: string → { en: <string> }; object → as-is.
+  function normLang(v) {
+    if (v == null) return {};
+    if (typeof v === 'string') return { en: v };
+    return v;
+  }
+
+  function renderLangGroup(containerId, fieldKey, currentVal) {
+    const wrap = $(containerId);
+    wrap.innerHTML = '';
+    const vals = normLang(currentVal);
+    LANGS.forEach((L, i) => {
+      const row = document.createElement('div');
+      row.className = 'lang-row' + (i > 0 ? ' other-langs' : '');
+      const dir = (L.code === 'he' || L.code === 'ar') ? 'rtl' : 'ltr';
+      row.innerHTML = `
+        <div class="lang-tag">${L.label}</div>
+        <input data-lang-field="${fieldKey}" data-lang="${L.code}" type="text" dir="${dir}" placeholder="${L.placeholder[fieldKey] || ''}" value="${(vals[L.code] || '').replace(/"/g, '&quot;')}">
+      `;
+      wrap.appendChild(row);
+    });
+    // Toggle for "other languages"
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'lang-toggle';
+    toggle.textContent = '+ Other languages (HE, FR, ES, AR)';
+    toggle.onclick = () => {
+      const others = wrap.querySelectorAll('.other-langs');
+      const isOpen = others[0].classList.contains('open');
+      others.forEach(o => o.classList.toggle('open', !isOpen));
+      toggle.textContent = isOpen
+        ? '+ Other languages (HE, FR, ES, AR)'
+        : '− Hide other languages';
+    };
+    wrap.appendChild(toggle);
+  }
+
+  function collectLangGroup(fieldKey) {
+    const out = {};
+    document.querySelectorAll(`[data-lang-field="${fieldKey}"]`).forEach(inp => {
+      const v = inp.value.trim();
+      if (v) out[inp.dataset.lang] = v;
+    });
+    return out;
+  }
+
   // ===== UI helpers =====
   function toast(msg, isErr) {
     const t = $('toast');
@@ -403,14 +487,14 @@
     $('phoneDisplay').value = DATA.phone?.display || '';
     $('igHandle').value     = DATA.instagram      || '';
 
-    // Address
-    $('street').value = DATA.address?.street || '';
-    $('city').value   = DATA.address?.city   || '';
+    // Address — multilingual
+    renderLangGroup('streetLangs', 'street', DATA.address?.street);
+    renderLangGroup('cityLangs',   'city',   DATA.address?.city);
 
     // Hours
-    $('hoursDisplay').value = DATA.hours?.display || '';
-    $('opens').value        = DATA.hours?.opens   || '';
-    $('closes').value       = DATA.hours?.closes  || '';
+    renderLangGroup('hoursDisplayLangs', 'hoursDisplay', DATA.hours?.display);
+    $('opens').value  = DATA.hours?.opens  || '';
+    $('closes').value = DATA.hours?.closes || '';
 
     const activeDays = new Set(DATA.hours?.days || []);
     $('days').querySelectorAll('.day-chip').forEach(chip => {
@@ -514,12 +598,12 @@
 
     out.address = {
       ...DATA.address,
-      street: $('street').value.trim(),
-      city:   $('city').value.trim()
+      street: collectLangGroup('street'),
+      city:   collectLangGroup('city')
     };
 
     out.hours = {
-      display: $('hoursDisplay').value.trim(),
+      display: collectLangGroup('hoursDisplay'),
       opens:   $('opens').value,
       closes:  $('closes').value,
       days: Array.from($('days').querySelectorAll('.day-chip.on')).map(c => c.dataset.day)
