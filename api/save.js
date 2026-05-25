@@ -40,6 +40,39 @@ async function ghPut(path, contentBase64, sha, message) {
   return r.json();
 }
 
+// === Auto-translation via MyMemory (free, no API key) ===
+// Translates a single English string to a target language.
+// Returns the original string on failure so the site never goes blank.
+async function translateOne(text, targetLang) {
+  if (!text || targetLang === 'en') return text;
+  try {
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${targetLang}&de=ifergantech@gmail.com`;
+    const r = await fetch(url);
+    if (!r.ok) return text;
+    const j = await r.json();
+    const out = j?.responseData?.translatedText;
+    if (!out || typeof out !== 'string') return text;
+    // MyMemory sometimes returns the input verbatim or with quota warnings
+    if (/MYMEMORY WARNING|QUOTA/i.test(out)) return text;
+    return out;
+  } catch (e) {
+    console.warn('translate failed:', targetLang, e.message);
+    return text;
+  }
+}
+
+// Take an English string and return { he, en, fr, es, ar }.
+async function expandToAllLangs(en) {
+  if (!en || typeof en !== 'string') return en; // pass-through (already an object or empty)
+  const [he, fr, es, ar] = await Promise.all([
+    translateOne(en, 'he'),
+    translateOne(en, 'fr'),
+    translateOne(en, 'es'),
+    translateOne(en, 'ar')
+  ]);
+  return { he, en, fr, es, ar };
+}
+
 async function geocode(street, city) {
   // Nominatim — free OpenStreetMap geocoder. Requires a User-Agent.
   const q = encodeURIComponent(`${street}, ${city}`);
@@ -102,20 +135,39 @@ export default async function handler(req, res) {
     // Normalize reels (accept full URLs or bare shortcodes)
     data.reels = data.reels.map(r => extractShortcode(r));
 
+    // Keep the raw English strings for geocoding + mapsQuery before we expand to all languages.
+    const streetEn = typeof data.address.street === 'string' ? data.address.street : (data.address.street?.en || '');
+    const cityEn   = typeof data.address.city   === 'string' ? data.address.city   : (data.address.city?.en   || '');
+    const hoursEn  = typeof data.hours.display  === 'string' ? data.hours.display  : (data.hours.display?.en  || '');
+
     // Geocode address if street+city are present (refresh lat/lng each save)
     try {
-      const geo = await geocode(data.address.street, data.address.city);
+      const geo = await geocode(streetEn, cityEn);
       if (geo) {
         data.address.lat = geo.lat;
         data.address.lng = geo.lng;
       }
     } catch (e) {
-      // Non-fatal — keep existing lat/lng
       console.warn('geocode failed:', e.message);
     }
 
-    // Build mapsQuery for the iframe
-    data.address.mapsQuery = `${data.address.street}, ${data.address.city}`;
+    // Build mapsQuery for the iframe (always English so Google Maps resolves it reliably)
+    data.address.mapsQuery = `${streetEn}, ${cityEn}`;
+
+    // Auto-translate English → HE / FR / ES / AR for the 3 free-text fields.
+    // If translation fails for a language we fall back to the English value.
+    try {
+      const [streetAll, cityAll, hoursAll] = await Promise.all([
+        expandToAllLangs(streetEn),
+        expandToAllLangs(cityEn),
+        expandToAllLangs(hoursEn)
+      ]);
+      if (streetAll) data.address.street  = streetAll;
+      if (cityAll)   data.address.city    = cityAll;
+      if (hoursAll)  data.hours.display   = hoursAll;
+    } catch (e) {
+      console.warn('translation step failed:', e.message);
+    }
 
     // Stamp updatedAt
     data.updatedAt = new Date().toISOString();
