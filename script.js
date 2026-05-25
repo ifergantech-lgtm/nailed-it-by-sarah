@@ -487,12 +487,21 @@ function applySiteData() {
     if (addrEl && street && city) addrEl.textContent = street + ', ' + city;
   }
 
-  // Map iframe
-  if (d.address && d.address.mapsQuery) {
+  // Map iframe — prefer CID (links to actual Google Business Profile listing)
+  if (d.address) {
     const mapIframe = document.querySelector('.visit-map-wrap iframe');
     if (mapIframe) {
-      const newSrc = 'https://maps.google.com/maps?q=' + encodeURIComponent(d.address.mapsQuery) + '&output=embed';
-      if (mapIframe.src !== newSrc) mapIframe.src = newSrc;
+      let newSrc;
+      // Pull CID from googlePlaceId ("0x...:0x...") or fall back to mapsQuery search
+      const fid = d.address.googlePlaceId;
+      const cidHex = fid && fid.split(':')[1];
+      if (cidHex) {
+        try { newSrc = 'https://maps.google.com/maps?cid=' + BigInt(cidHex).toString() + '&output=embed'; } catch (e) {}
+      }
+      if (!newSrc && d.address.mapsQuery) {
+        newSrc = 'https://maps.google.com/maps?q=' + encodeURIComponent(d.address.mapsQuery) + '&output=embed';
+      }
+      if (newSrc && mapIframe.src !== newSrc) mapIframe.src = newSrc;
     }
   }
 
