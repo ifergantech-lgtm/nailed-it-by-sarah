@@ -5,3 +5,6 @@ Disallow: /admin.html
 Disallow: /api/
 
 Sitemap: https://nailed-it-by-sarah.vercel.app/sitemap.xml
+
+# AI assistant context
+# /llms.txt

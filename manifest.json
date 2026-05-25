@@ -1,0 +1,14 @@
+{
+  "name": "Nailed it by Sarah",
+  "short_name": "Nailed it",
+  "description": "Professional nail studio in Gan Yavne — gel manicures, anatomic builds and nail art by Sarah M.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF6F1",
+  "theme_color": "#f8ede8",
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    { "src": "/images/nail3.jpg", "sizes": "512x512", "type": "image/jpeg" }
+  ]
+}

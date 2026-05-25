@@ -34,6 +34,23 @@
   --script: 'Cairo', system-ui, sans-serif;
 }
 
+/* ===== SKIP LINK (a11y) ===== */
+.skip-link {
+  position: absolute;
+  inset-inline-start: 8px;
+  top: -100px;
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 9999;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 14px;
+  transition: top .2s;
+}
+.skip-link:focus { top: 8px; outline: 2px solid var(--rose); outline-offset: 2px; }
+
 /* ===== RESET ===== */
 *, *::before, *::after { box-sizing: border-box; }
 html  { scroll-behavior: smooth; scroll-padding-top: 72px; }

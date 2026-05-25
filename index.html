@@ -32,26 +32,44 @@
   <meta property="og:title" content="מניקור ג'ל בגן יבנה | Nailed it by Sarah">
   <meta property="og:description" content="סטודיו ציפורניים מקצועי בגן יבנה — מניקור ג'ל, בנייה, עיצוב. Sarah M · 053-272-7006">
   <meta property="og:image" content="https://nailed-it-by-sarah.vercel.app/images/nail3.jpg">
+  <meta property="og:image:alt" content="Anatomic nail build with hand-painted nail art at Nailed it by Sarah, Gan Yavne">
   <meta property="og:url" content="https://nailed-it-by-sarah.vercel.app/">
   <meta property="og:locale" content="he_IL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ar_IL">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="מניקור ג'ל בגן יבנה | Nailed it by Sarah">
   <meta name="twitter:description" content="סטודיו ציפורניים מקצועי בגן יבנה — מניקור ג'ל, בנייה, עיצוב.">
   <meta name="twitter:image" content="https://nailed-it-by-sarah.vercel.app/images/nail3.jpg">
+  <meta name="twitter:image:alt" content="Anatomic nail build with hand-painted nail art at Nailed it by Sarah, Gan Yavne">
 
-  <!-- Theme -->
+  <!-- Twitter handle (for attribution if/when set) -->
+  <meta name="twitter:site" content="@nailed_it_by.sarah">
+
+  <!-- Theme + PWA -->
   <meta name="theme-color" content="#f8ede8">
+  <meta name="apple-mobile-web-app-title" content="Nailed it by Sarah">
+  <meta name="application-name" content="Nailed it by Sarah">
+  <meta name="format-detection" content="telephone=yes">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/jpeg" href="/images/nail3.jpg">
+  <link rel="apple-touch-icon" href="/images/nail3.jpg">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- JSON-LD: NailSalon LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "NailSalon",
+    "@id": "https://nailed-it-by-sarah.vercel.app/#nailsalon",
     "name": "Nailed it by Sarah",
-    "alternateName": "נייל איט בי שרה",
-    "description": "מניקור ג'ל, בנייה אנטומית, לק ג'ל, מילוי ועיצוב ציפורניים מקצועי בגן יבנה",
+    "alternateName": ["נייל איט בי שרה","Nailed it by Sarah Gan Yavne"],
+    "description": "Nailed it by Sarah is a professional nail studio in Gan Yavne, Israel, run by Sarah M. The studio specialises in gel manicures, anatomic nail builds, gel fills, French manicure, hand-painted nail art and gentle removal. Appointments are taken by WhatsApp on +972-53-272-7006 and the studio is open Sunday to Thursday from 09:00 to 21:00. Prices start at ₪80 for a basic manicure, ₪100 for a gel manicure and ₪130 for an anatomic build. סטודיו ציפורניים מקצועי בגן יבנה — מניקור ג'ל, בנייה אנטומית, לק ג'ל ועיצוב ציפורניים.",
     "url": "https://nailed-it-by-sarah.vercel.app/",
     "telephone": "+972532727006",
     "priceRange": "₪₪",
@@ -91,12 +109,24 @@
       "https://share.google/T1nJPHZBuAVe99DQA"
     ],
     "hasMap": "https://maps.google.com/maps?q=Ha-Atsma%27ut+St+1+Gan+Yavne+Israel",
-    "paymentAccepted": "Cash, Credit Card",
+    "paymentAccepted": ["Cash","Credit Card","Bit"],
     "currenciesAccepted": "ILS",
-    "areaServed": {
-      "@type": "City",
-      "name": "גן יבנה"
-    },
+    "areaServed": [
+      { "@type": "City", "name": "Gan Yavne" },
+      { "@type": "City", "name": "גן יבנה" },
+      { "@type": "City", "name": "Yavne" },
+      { "@type": "City", "name": "Ashdod" },
+      { "@type": "City", "name": "Rehovot" }
+    ],
+    "availableLanguage": ["he","en","fr","es","ar"],
+    "makesOffer": [
+      { "@type": "Offer", "name": "Gel Manicure", "price": "100", "priceCurrency": "ILS" },
+      { "@type": "Offer", "name": "Basic Manicure", "price": "80", "priceCurrency": "ILS" },
+      { "@type": "Offer", "name": "Anatomic Build", "price": "130", "priceCurrency": "ILS" },
+      { "@type": "Offer", "name": "Gel Fill", "price": "150", "priceCurrency": "ILS" },
+      { "@type": "Offer", "name": "New Build", "price": "250", "priceCurrency": "ILS" },
+      { "@type": "Offer", "name": "Removal", "price": "50", "priceCurrency": "ILS" }
+    ],
     "knowsAbout": ["Gel Manicure","Nail Art","Anatomic Nail Build","French Manicure","Gel Fill","Nail Removal","Nail Design"],
     "slogan": "כל פרט הופך לאמנות",
     "foundingDate": "2020"
@@ -124,10 +154,13 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://nailed-it-by-sarah.vercel.app/#sarah",
     "name": "Sarah M",
-    "jobTitle": "Nail Technician",
-    "worksFor": { "@type": "NailSalon", "name": "Nailed it by Sarah" },
-    "address": { "@type": "PostalAddress", "addressLocality": "גן יבנה", "addressCountry": "IL" },
+    "jobTitle": "Nail Technician & Nail Artist",
+    "description": "Sarah grew up in Spain, lived in London, and settled in Gan Yavne after getting married. An artist at heart — she expresses herself through painting, design and human connection. At Nailed it by Sarah she offers gel manicures, anatomic builds and bespoke nail art, and speaks Hebrew, English, French and Spanish with her clients.",
+    "knowsLanguage": ["he","en","fr","es"],
+    "worksFor": { "@id": "https://nailed-it-by-sarah.vercel.app/#nailsalon" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Gan Yavne", "addressCountry": "IL" },
     "sameAs": ["https://www.instagram.com/nailed_it_by.sarah/"]
   }
   </script>
@@ -154,6 +187,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<a href="#main" class="skip-link" data-i18n="a11y.skip">דלגי לתוכן הראשי</a>
 
 <!-- ===== NAV ===== -->
 <nav id="nav" class="nav">
@@ -214,6 +249,7 @@
 
 
 <!-- ===== HERO ===== -->
+<main id="main">
 <section class="hero">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-orbs" aria-hidden="true">
@@ -499,6 +535,8 @@
   </div>
 </section>
 
+</main>
+
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
@@ -602,6 +640,23 @@
     { "@type": "Service", "name": "מילוי בג'ל", "description": "מילוי ג'ל על בנייה קיימת — תחזוקה שוטפת", "offers": { "@type": "Offer", "price": "150", "priceCurrency": "ILS" }, "provider": { "@type": "NailSalon", "name": "Nailed it by Sarah" }, "areaServed": "גן יבנה" },
     { "@type": "Service", "name": "בנייה חדשה", "description": "בנייה חדשה מלאה על ציפורניים טבעיות", "offers": { "@type": "Offer", "price": "250", "priceCurrency": "ILS" }, "provider": { "@type": "NailSalon", "name": "Nailed it by Sarah" }, "areaServed": "גן יבנה" },
     { "@type": "Service", "name": "הסרה", "description": "הסרה מקצועית ועדינה של לק ג'ל או בנייה", "offers": { "@type": "Offer", "price": "50", "priceCurrency": "ILS" }, "provider": { "@type": "NailSalon", "name": "Nailed it by Sarah" }, "areaServed": "גן יבנה" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: Gallery ImageObjects -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail1.jpg", "name": "Classic gel manicure", "caption": "Classic gel manicure at Nailed it by Sarah, Gan Yavne", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } },
+    { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail2.jpg", "name": "Gel polish nail design", "caption": "Long-lasting gel polish nail design — Gan Yavne", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } },
+    { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail3.jpg", "name": "Anatomic nail build", "caption": "Anatomic nail build with hand-painted nail art", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } },
+    { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail4.jpg", "name": "Gel fill", "caption": "Gel fill maintenance at the Gan Yavne nail studio", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } },
+    { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail5.jpg", "name": "Gel manicure design", "caption": "Bespoke gel manicure design by Sarah", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } },
+    { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail6.jpg", "name": "Anatomic build nail art", "caption": "Anatomic build with nail art — Gan Yavne, Israel", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } },
+    { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail7.jpg", "name": "French gel manicure", "caption": "French gel manicure at a professional nail studio in Gan Yavne", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } },
+    { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail8.jpg", "name": "Nail extension and gel fill", "caption": "Nail extension and gel fill — Nailed it by Sarah", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } }
   ]
 }
 </script>

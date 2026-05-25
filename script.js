@@ -2,6 +2,8 @@
 const T = {
   he: {
     'meta.title':        'Nailed it by Sarah — מניקור ג\'ל בגן יבנה',
+    'meta.desc':         'סטודיו ציפורניים מקצועי בגן יבנה. מניקור ג\'ל, בנייה אנטומית, לק ג\'ל, מילוי ועיצוב ציפורניים. Sarah M — 053-272-7006. א\'–ה\' 09:00–21:00.',
+    'a11y.skip':         'דלגי לתוכן הראשי',
     'nav.services':      'שירותים',
     'nav.gallery':       'גלריה',
     'nav.reviews':       'ביקורות',
@@ -69,6 +71,8 @@ const T = {
 
   en: {
     'meta.title':        'Nailed it by Sarah — Gel Nails in Gan Yavne',
+    'meta.desc':         'Professional nail studio in Gan Yavne, Israel. Gel manicure, anatomic build, gel fill and bespoke nail art by Sarah M. WhatsApp 053-272-7006. Sun–Thu 09:00–21:00.',
+    'a11y.skip':         'Skip to main content',
     'nav.services':      'Services',
     'nav.gallery':       'Gallery',
     'nav.reviews':       'Reviews',
@@ -136,6 +140,8 @@ const T = {
 
   fr: {
     'meta.title':        'Nailed it by Sarah — Manucure gel à Gan Yavne',
+    'meta.desc':         'Studio d\'ongles professionnel à Gan Yavne, Israël. Manucure gel, construction anatomique, remplissage et nail art par Sarah M. WhatsApp 053-272-7006. Dim–Jeu 09h–21h.',
+    'a11y.skip':         'Aller au contenu principal',
     'nav.services':      'Prestations',
     'nav.gallery':       'Galerie',
     'nav.reviews':       'Avis',
@@ -203,6 +209,8 @@ const T = {
 
   es: {
     'meta.title':        'Nailed it by Sarah — Manicura gel en Gan Yavne',
+    'meta.desc':         'Estudio de uñas profesional en Gan Yavne, Israel. Manicura gel, construcción anatómica, relleno y nail art por Sarah M. WhatsApp 053-272-7006. Dom–Jue 09:00–21:00.',
+    'a11y.skip':         'Ir al contenido principal',
     'nav.services':      'Servicios',
     'nav.gallery':       'Galería',
     'nav.reviews':       'Reseñas',
@@ -270,6 +278,8 @@ const T = {
 
   ar: {
     'meta.title':        'Nailed it by Sarah — مانيكير جل في غان يفني',
+    'meta.desc':         'ستوديو أظافر احترافي في غان يفنه، إسرائيل. مانيكير جل، بناء تشريحي، ملء جل وفن أظافر مع سارة م. واتساب 053-272-7006. الأحد–الخميس 09:00–21:00.',
+    'a11y.skip':         'تخطّي إلى المحتوى الرئيسي',
     'nav.services':      'الخدمات',
     'nav.gallery':       'المعرض',
     'nav.reviews':       'التقييمات',
@@ -384,6 +394,25 @@ function setLang(lang) {
 
   document.getElementById('currentLangLabel').textContent = LANG_LABELS[lang] || lang;
   document.title = T[lang]['meta.title'] || document.title;
+
+  // Per-language meta description + og/twitter description
+  const desc = T[lang]['meta.desc'];
+  if (desc) {
+    const setMeta = (sel, attr, val) => {
+      const el = document.querySelector(sel);
+      if (el) el.setAttribute(attr, val);
+    };
+    setMeta('meta[name="description"]', 'content', desc);
+    setMeta('meta[property="og:description"]', 'content', desc);
+    setMeta('meta[name="twitter:description"]', 'content', desc);
+    // og:locale
+    const ogLocale = { he: 'he_IL', en: 'en_US', fr: 'fr_FR', es: 'es_ES', ar: 'ar_IL' }[lang] || 'he_IL';
+    setMeta('meta[property="og:locale"]', 'content', ogLocale);
+    // og:title with localized title
+    const t = T[lang]['meta.title'];
+    if (t) setMeta('meta[property="og:title"]', 'content', t);
+    if (t) setMeta('meta[name="twitter:title"]', 'content', t);
+  }
 
   renderReviews();
   localStorage.setItem('lang', lang);
@@ -752,6 +781,16 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 /* ===== INIT ===== */
 renderReviews();
-const savedLang = localStorage.getItem('lang') || 'he';
-setLang(savedLang);
+// Priority: ?lang= query param > localStorage > browser language > 'he'
+function detectInitialLang() {
+  const params = new URLSearchParams(window.location.search);
+  const qp = params.get('lang');
+  if (qp && T[qp]) return qp;
+  const stored = localStorage.getItem('lang');
+  if (stored && T[stored]) return stored;
+  const nav = (navigator.language || 'he').slice(0, 2);
+  if (T[nav]) return nav;
+  return 'he';
+}
+setLang(detectInitialLang());
 loadSiteData();
