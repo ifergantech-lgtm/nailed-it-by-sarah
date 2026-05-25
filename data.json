@@ -8,42 +8,127 @@
     "city": "גן יבנה",
     "lat": 31.7895,
     "lng": 34.7031,
-    "mapsQuery": "Ha-Atsma'ut St 1 Gan Yavne Israel",
+    "mapsQuery": "רחוב העצמאות 1, גן יבנה",
     "mapsLink": "https://share.google/T1nJPHZBuAVe99DQA"
   },
   "hours": {
     "display": "א'–ה' · 09:00–21:00",
     "opens": "09:00",
     "closes": "21:00",
-    "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"]
+    "days": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday"
+    ]
   },
   "services": [
-    { "id": "basic",          "category": "treatments", "i18nKey": "srv.basic",          "price": "₪80"        },
-    { "id": "gel",            "category": "treatments", "i18nKey": "srv.gel",            "price": "₪100"       },
-    { "id": "anatomic",       "category": "treatments", "i18nKey": "srv.anatomic",       "price": "₪130"       },
-    { "id": "fill",           "category": "treatments", "i18nKey": "srv.fill",           "price": "₪150"       },
-    { "id": "newbuild",       "category": "treatments", "i18nKey": "srv.newbuild",       "price": "₪250"       },
-    { "id": "touchup",        "category": "addons",     "i18nKey": "srv.touchup",        "price": "₪5 / ₪10"   },
-    { "id": "french",         "category": "addons",     "i18nKey": "srv.french",         "price": "+₪20"       },
-    { "id": "design1",        "category": "addons",     "i18nKey": "srv.design1",        "price": "₪5 / ₪10"   },
-    { "id": "designall",      "category": "addons",     "i18nKey": "srv.designall",      "price": "₪50"        },
-    { "id": "removal",        "category": "removal",    "i18nKey": "srv.removal",        "price": "₪50"        },
-    { "id": "removalmanicure","category": "removal",    "i18nKey": "srv.removalmanicure","price": "₪80"        }
+    {
+      "id": "basic",
+      "category": "treatments",
+      "i18nKey": "srv.basic",
+      "price": "₪80"
+    },
+    {
+      "id": "gel",
+      "category": "treatments",
+      "i18nKey": "srv.gel",
+      "price": "₪100"
+    },
+    {
+      "id": "anatomic",
+      "category": "treatments",
+      "i18nKey": "srv.anatomic",
+      "price": "₪130"
+    },
+    {
+      "id": "fill",
+      "category": "treatments",
+      "i18nKey": "srv.fill",
+      "price": "₪150"
+    },
+    {
+      "id": "newbuild",
+      "category": "treatments",
+      "i18nKey": "srv.newbuild",
+      "price": "₪250"
+    },
+    {
+      "id": "touchup",
+      "category": "addons",
+      "i18nKey": "srv.touchup",
+      "price": "₪5 / ₪10"
+    },
+    {
+      "id": "french",
+      "category": "addons",
+      "i18nKey": "srv.french",
+      "price": "₪20"
+    },
+    {
+      "id": "design1",
+      "category": "addons",
+      "i18nKey": "srv.design1",
+      "price": "₪5+"
+    },
+    {
+      "id": "designall",
+      "category": "addons",
+      "i18nKey": "srv.designall",
+      "price": "₪50+"
+    },
+    {
+      "id": "removal",
+      "category": "removal",
+      "i18nKey": "srv.removal",
+      "price": "₪50"
+    },
+    {
+      "id": "removalmanicure",
+      "category": "removal",
+      "i18nKey": "srv.removalmanicure",
+      "price": "₪80"
+    }
   ],
   "gallery": [
-    { "shortcode": "", "image": "/images/nail1.jpg" },
-    { "shortcode": "", "image": "/images/nail2.jpg" },
-    { "shortcode": "", "image": "/images/nail3.jpg" },
-    { "shortcode": "", "image": "/images/nail4.jpg" },
-    { "shortcode": "", "image": "/images/nail5.jpg" },
-    { "shortcode": "", "image": "/images/nail6.jpg" },
-    { "shortcode": "", "image": "/images/nail7.jpg" },
-    { "shortcode": "", "image": "/images/nail8.jpg" }
+    {
+      "shortcode": "",
+      "image": "/images/nail1.jpg"
+    },
+    {
+      "shortcode": "",
+      "image": "/images/nail2.jpg"
+    },
+    {
+      "shortcode": "",
+      "image": "/images/nail3.jpg"
+    },
+    {
+      "shortcode": "",
+      "image": "/images/nail4.jpg"
+    },
+    {
+      "shortcode": "",
+      "image": "/images/nail5.jpg"
+    },
+    {
+      "shortcode": "",
+      "image": "/images/nail6.jpg"
+    },
+    {
+      "shortcode": "",
+      "image": "/images/nail7.jpg"
+    },
+    {
+      "shortcode": "",
+      "image": "/images/nail8.jpg"
+    }
   ],
   "reels": [
     "DX_tLfVqt6p",
     "DXcNxNqincL"
   ],
   "instagram": "nailed_it_by.sarah",
-  "updatedAt": "2026-05-25T00:00:00Z"
+  "updatedAt": "2026-05-25T15:04:02.331Z"
 }
