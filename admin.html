@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
-  <title>ניהול האתר — Nailed it by Sarah</title>
+  <title>Site Admin — Nailed it by Sarah</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -235,10 +235,10 @@
   <div class="login" id="login">
     <form class="login-card" id="loginForm">
       <div class="brand-mark">N</div>
-      <h1>ניהול האתר</h1>
-      <p>הקלידי את הסיסמה כדי להתחבר</p>
-      <input type="password" id="pwd" autocomplete="current-password" placeholder="סיסמה" required>
-      <button type="submit">כניסה</button>
+      <h1>Site Admin</h1>
+      <p>Enter your password to log in</p>
+      <input type="password" id="pwd" autocomplete="current-password" placeholder="Password" required>
+      <button type="submit">Log in</button>
     </form>
   </div>
 
@@ -246,9 +246,9 @@
   <div class="topbar gated">
     <div style="display:flex; align-items:center; gap:10px;">
       <div class="brand-mark">N</div>
-      <h1>ניהול האתר</h1>
+      <h1>Site Admin</h1>
     </div>
-    <button class="logout" id="logoutBtn" type="button">יציאה</button>
+    <button class="logout" id="logoutBtn" type="button">Log out</button>
   </div>
 
   <!-- ===== ADMIN FORM ===== -->
@@ -256,88 +256,88 @@
 
     <!-- Contact -->
     <section class="card">
-      <div class="card-head"><span class="ico">📞</span><h2>צור קשר</h2></div>
+      <div class="card-head"><span class="ico">📞</span><h2>Contact</h2></div>
       <div class="field">
-        <label for="phoneIntl">מספר טלפון (בפורמט בינלאומי, מתחיל ב-+972)</label>
+        <label for="phoneIntl">Phone number (international format, starts with +972)</label>
         <input id="phoneIntl" type="tel" dir="ltr" placeholder="+972532727006">
       </div>
       <div class="field">
-        <label for="phoneDisplay">מספר טלפון (לתצוגה)</label>
+        <label for="phoneDisplay">Phone number (for display)</label>
         <input id="phoneDisplay" type="text" dir="ltr" placeholder="053-272-7006">
       </div>
       <div class="field">
-        <label for="igHandle">שם משתמש באינסטגרם (בלי @)</label>
+        <label for="igHandle">Instagram username (without @)</label>
         <input id="igHandle" type="text" dir="ltr" placeholder="nailed_it_by.sarah">
       </div>
     </section>
 
     <!-- Address -->
     <section class="card">
-      <div class="card-head"><span class="ico">📍</span><h2>כתובת</h2></div>
+      <div class="card-head"><span class="ico">📍</span><h2>Address</h2></div>
       <div class="field">
-        <label for="street">רחוב ומספר</label>
-        <input id="street" type="text" placeholder="רחוב העצמאות 1">
+        <label for="street">Street &amp; number</label>
+        <input id="street" type="text" placeholder="HaAtzma'ut 1">
       </div>
       <div class="field">
-        <label for="city">עיר</label>
-        <input id="city" type="text" placeholder="גן יבנה">
+        <label for="city">City</label>
+        <input id="city" type="text" placeholder="Gan Yavne">
       </div>
-      <small style="color:var(--ink-soft); font-size:.78rem;">המיקום במפה יתעדכן אוטומטית</small>
+      <small style="color:var(--ink-soft); font-size:.78rem;">The map pin updates automatically.</small>
     </section>
 
     <!-- Hours -->
     <section class="card">
-      <div class="card-head"><span class="ico">🕐</span><h2>שעות פעילות</h2></div>
+      <div class="card-head"><span class="ico">🕐</span><h2>Opening hours</h2></div>
       <div class="field">
-        <label for="hoursDisplay">טקסט לתצוגה</label>
-        <input id="hoursDisplay" type="text" placeholder="א'–ה' · 09:00–21:00">
+        <label for="hoursDisplay">Display text</label>
+        <input id="hoursDisplay" type="text" placeholder="Sun–Thu · 09:00–21:00">
       </div>
       <div class="row2">
         <div class="field">
-          <label for="opens">פתיחה</label>
+          <label for="opens">Opens</label>
           <input id="opens" type="time">
         </div>
         <div class="field">
-          <label for="closes">סגירה</label>
+          <label for="closes">Closes</label>
           <input id="closes" type="time">
         </div>
       </div>
       <div class="field">
-        <label>ימי פעילות</label>
+        <label>Open days</label>
         <div class="days" id="days">
-          <div class="day-chip" data-day="Sunday">א'</div>
-          <div class="day-chip" data-day="Monday">ב'</div>
-          <div class="day-chip" data-day="Tuesday">ג'</div>
-          <div class="day-chip" data-day="Wednesday">ד'</div>
-          <div class="day-chip" data-day="Thursday">ה'</div>
-          <div class="day-chip" data-day="Friday">ו'</div>
-          <div class="day-chip" data-day="Saturday">ש'</div>
+          <div class="day-chip" data-day="Sunday">Sun</div>
+          <div class="day-chip" data-day="Monday">Mon</div>
+          <div class="day-chip" data-day="Tuesday">Tue</div>
+          <div class="day-chip" data-day="Wednesday">Wed</div>
+          <div class="day-chip" data-day="Thursday">Thu</div>
+          <div class="day-chip" data-day="Friday">Fri</div>
+          <div class="day-chip" data-day="Saturday">Sat</div>
         </div>
       </div>
     </section>
 
     <!-- Services / Prices -->
     <section class="card">
-      <div class="card-head"><span class="ico">💅</span><h2>מחירון</h2></div>
-      <small style="color:var(--ink-soft); font-size:.82rem;">ניתן לערוך את המחיר של כל שירות. להוספה/הסרה של שירות — פני לגבריאל.</small>
+      <div class="card-head"><span class="ico">💅</span><h2>Price list</h2></div>
+      <small style="color:var(--ink-soft); font-size:.82rem;">You can edit the price of each service. To add or remove a service, contact Gabriel.</small>
       <div id="services"></div>
     </section>
 
     <!-- Gallery -->
     <section class="card">
-      <div class="card-head"><span class="ico">📸</span><h2>גלריית תמונות</h2></div>
+      <div class="card-head"><span class="ico">📸</span><h2>Photo gallery</h2></div>
       <small style="color:var(--ink-soft); font-size:.82rem; display:block; margin-bottom:8px;">
-        העתיקי לכל משבצת קישור של פוסט מהאינסטגרם<br>
-        (לחיצה ארוכה על הפוסט → "Copy Link"). השאירי ריק להשתמש בתמונה הנוכחית.
+        Paste the link of an Instagram post into each slot<br>
+        (long-press on the post → "Copy Link"). Leave empty to keep the current photo.
       </small>
       <div id="gallery"></div>
     </section>
 
     <!-- Reels -->
     <section class="card">
-      <div class="card-head"><span class="ico">🎬</span><h2>ריילס</h2></div>
+      <div class="card-head"><span class="ico">🎬</span><h2>Reels</h2></div>
       <small style="color:var(--ink-soft); font-size:.82rem; display:block; margin-bottom:8px;">
-        העתיקי לכל משבצת קישור של ריל מהאינסטגרם.
+        Paste the link of an Instagram reel into each slot.
       </small>
       <div id="reels"></div>
     </section>
@@ -346,7 +346,7 @@
 
   <!-- ===== SAVE BAR ===== -->
   <div class="savebar gated">
-    <button type="button" id="saveBtn">💾 שמירה ופרסום</button>
+    <button type="button" id="saveBtn">💾 Save &amp; publish</button>
   </div>
 
   <!-- Toast -->
@@ -432,9 +432,9 @@
     const wrap = $('services');
     wrap.innerHTML = '';
     const cats = {
-      treatments: 'טיפולים',
-      addons:     'תוספות',
-      removal:    'הסרה'
+      treatments: 'Treatments',
+      addons:     'Add-ons',
+      removal:    'Removal'
     };
     Object.entries(cats).forEach(([catKey, catLabel]) => {
       const items = DATA.services.filter(s => s.category === catKey);
@@ -456,21 +456,21 @@
   }
 
   function labelForService(id) {
-    // Hebrew labels matching script.js
-    const HE = {
-      basic: 'מניקור בסיסי',
-      gel: "מניקור עם לק ג'ל",
-      anatomic: 'מבנה אנטומי',
-      fill: "מילוי בג'ל",
-      newbuild: 'בנייה חדשה',
-      touchup: 'השלמות',
-      french: "פרנץ' / אבקת פנינה",
-      design1: 'ציור על ציפורן אחד',
-      designall: 'ציור על כל הציפורים',
-      removal: 'הסרה',
-      removalmanicure: 'הסרה ומניקור'
+    // English labels for the admin UI
+    const EN = {
+      basic: 'Basic manicure',
+      gel: 'Gel polish manicure',
+      anatomic: 'Anatomic build',
+      fill: 'Gel fill',
+      newbuild: 'New build',
+      touchup: 'Touch-ups',
+      french: 'French / pearl powder',
+      design1: 'Art on one nail',
+      designall: 'Art on all nails',
+      removal: 'Removal',
+      removalmanicure: 'Removal + manicure'
     };
-    return HE[id] || id;
+    return EN[id] || id;
   }
 
   function renderGallery() {
@@ -481,7 +481,7 @@
       const slot = document.createElement('div');
       slot.className = 'slot';
       slot.innerHTML = `
-        <label>תמונה ${i + 1}</label>
+        <label>Photo ${i + 1}</label>
         <input data-gallery="${i}" type="text" placeholder="https://www.instagram.com/p/..." value="${g.shortcode ? 'https://www.instagram.com/p/' + g.shortcode + '/' : ''}">
       `;
       wrap.appendChild(slot);
@@ -495,7 +495,7 @@
       const slot = document.createElement('div');
       slot.className = 'slot';
       slot.innerHTML = `
-        <label>ריל ${i + 1}</label>
+        <label>Reel ${i + 1}</label>
         <input data-reel="${i}" type="text" placeholder="https://www.instagram.com/reel/..." value="${DATA.reels[i] ? 'https://www.instagram.com/reel/' + DATA.reels[i] + '/' : ''}">
       `;
       wrap.appendChild(slot);
@@ -546,7 +546,7 @@
   $('saveBtn').addEventListener('click', async () => {
     const btn = $('saveBtn');
     btn.disabled = true;
-    btn.textContent = 'שומר...';
+    btn.textContent = 'Saving...';
     try {
       const data = collect();
       const r = await fetch('/api/save', {
@@ -557,15 +557,15 @@
       const j = await r.json();
       if (!r.ok) {
         if (r.status === 401) sessionStorage.removeItem(PWD_KEY);
-        throw new Error(j.error || 'שגיאה');
+        throw new Error(j.error || 'Error');
       }
-      toast(j.message || 'נשמר בהצלחה');
+      toast(j.message || 'Saved successfully');
       DATA = data; // optimistic update
     } catch (e) {
-      toast(e.message || 'שגיאה בשמירה', true);
+      toast(e.message || 'Save failed', true);
     } finally {
       btn.disabled = false;
-      btn.textContent = '💾 שמירה ופרסום';
+      btn.textContent = '💾 Save & publish';
     }
   });
 
