@@ -9,7 +9,6 @@
   "lang": "he",
   "dir": "rtl",
   "icons": [
-    { "src": "/images/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
-    { "src": "/images/logo.svg",    "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+    { "src": "/images/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]
 }
