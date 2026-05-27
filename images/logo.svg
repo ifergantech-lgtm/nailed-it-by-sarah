@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Nailed it by Sarah">
+  <title>Nailed it by Sarah</title>
+
+  <defs>
+    <!-- Soft watercolor background blobs -->
+    <radialGradient id="bgPink" cx="30%" cy="35%" r="55%">
+      <stop offset="0%"  stop-color="#F5C9D6" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#FBE6E0" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FFF6F1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgPeach" cx="70%" cy="40%" r="55%">
+      <stop offset="0%"  stop-color="#F8D2BC" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#FFF6F1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgLavender" cx="55%" cy="70%" r="50%">
+      <stop offset="0%"  stop-color="#E5D4E6" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFF6F1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgCream" cx="50%" cy="50%" r="80%">
+      <stop offset="0%"  stop-color="#FFF6F1" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#FBEDE4" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Wine-burgundy text gradient (subtle depth) -->
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#7A2746"/>
+      <stop offset="100%" stop-color="#5C1B33"/>
+    </linearGradient>
+
+    <!-- Subtle paper grain -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bgCream)"/>
+  <rect width="800" height="800" fill="url(#bgPink)"/>
+  <rect width="800" height="800" fill="url(#bgPeach)"/>
+  <rect width="800" height="800" fill="url(#bgLavender)"/>
+  <rect width="800" height="800" filter="url(#grain)" fill="#000" opacity="0.06"/>
+
+  <!-- Tiny gold sparkles -->
+  <g fill="#C9A04A" opacity="0.8">
+    <circle cx="120" cy="180" r="2.5"/>
+    <circle cx="680" cy="140" r="1.8"/>
+    <circle cx="220" cy="660" r="2.2"/>
+    <circle cx="710" cy="620" r="2"/>
+    <circle cx="610" cy="300" r="1.4"/>
+    <circle cx="170" cy="430" r="1.6"/>
+    <circle cx="540" cy="680" r="2"/>
+    <path d="M310 110 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z" opacity="0.7"/>
+    <path d="M650 460 l2.5 7.5 7.5 2.5 -7.5 2.5 -2.5 7.5 -2.5 -7.5 -7.5 -2.5 7.5 -2.5z" opacity="0.7"/>
+  </g>
+
+  <!-- NAILED IT -->
+  <text x="400" y="395"
+        font-family="'Cormorant Garamond', 'Trajan Pro', 'Times New Roman', serif"
+        font-weight="600"
+        font-size="156"
+        letter-spacing="6"
+        text-anchor="middle"
+        fill="url(#ink)">NAILED IT</text>
+
+  <!-- By Sarah (script, slightly tilted, overlapping baseline) -->
+  <g transform="translate(400 510) rotate(-4)">
+    <text x="0" y="0"
+          font-family="'Dancing Script', 'Brush Script MT', 'Apple Chancery', cursive"
+          font-weight="600"
+          font-size="118"
+          text-anchor="middle"
+          fill="url(#ink)">By Sarah</text>
+  </g>
+
+  <!-- Hairline underline accent -->
+  <path d="M275 580 Q400 600 525 580" stroke="url(#ink)" stroke-width="1.5" fill="none" opacity="0.4" stroke-linecap="round"/>
+</svg>

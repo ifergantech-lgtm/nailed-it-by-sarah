@@ -161,11 +161,12 @@ em {
 .brand { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
 .brand-mark {
   width: 40px; height: 40px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--rose) 0%, var(--bronze) 100%);
-  color: var(--cream); display: grid; place-items: center;
-  font-family: var(--serif); font-weight: 600; font-size: 21px;
   box-shadow: var(--shadow-sm);
+  display: block; flex-shrink: 0;
+  object-fit: cover;
 }
+/* Update the script "by Sarah" tagline to match new logo wine color */
+.brand-line2 { color: #6B1F3D; }
 .brand-text  { display: flex; flex-direction: column; line-height: 1.15; }
 .brand-line1 { font-family: var(--serif); font-size: 17px; font-weight: 600; }
 .brand-line2 { font-family: 'Dancing Script', cursive; font-size: 17px; color: var(--rose-deep); }

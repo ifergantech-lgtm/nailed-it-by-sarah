@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nailed it by Sarah">
+  <defs>
+    <radialGradient id="bg" cx="32%" cy="30%" r="80%">
+      <stop offset="0%"  stop-color="#8C3052"/>
+      <stop offset="100%" stop-color="#5C1B33"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5C9D6" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#F5C9D6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Round wine background -->
+  <circle cx="32" cy="32" r="31" fill="url(#bg)"/>
+  <!-- Soft pink rim highlight -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="url(#rim)" stroke-width="1"/>
+
+  <!-- Stylized "N" — serif, classical proportions -->
+  <text x="32" y="46"
+        font-family="'Cormorant Garamond', 'Trajan Pro', 'Times New Roman', serif"
+        font-weight="700"
+        font-size="44"
+        text-anchor="middle"
+        fill="#FFF6F1">N</text>
+
+  <!-- Tiny script flourish under the N (the "by Sarah" feel) -->
+  <path d="M20 53 Q32 56 44 53" stroke="#F5C9D6" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.85"/>
+</svg>
