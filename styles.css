@@ -797,3 +797,101 @@ a.visit-value:hover { border-bottom-color: var(--ink); }
   .sticky-book-bar.visible { display: flex; }
   body.bar-visible .fab-whatsapp { display: none; }
 }
+
+
+/* ===== AREAS WE SERVE ===== */
+.areas { background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%); }
+.areas-intro {
+  max-width: 720px;
+  margin: 0 auto 36px;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.area-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.area-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.area-name {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.area-meta {
+  font-size: 0.85rem;
+  color: var(--rose-deep);
+  letter-spacing: 0.04em;
+}
+.areas-lang {
+  text-align: center;
+  margin-top: 32px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+}
+
+
+/* ===== HOW TO BOOK STEPS ===== */
+.book-steps {
+  background: var(--cream-2);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin: 20px 0 28px;
+  border: 1px solid var(--line);
+}
+.book-steps-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+.book-steps-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  counter-reset: step;
+}
+.book-steps-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: 0.96rem;
+  color: var(--ink);
+  counter-increment: step;
+}
+.book-steps-list li::before {
+  content: counter(step);
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--rose);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.book-step-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}

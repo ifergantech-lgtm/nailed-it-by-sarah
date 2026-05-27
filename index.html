@@ -12,6 +12,10 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://nailed-it-by-sarah.vercel.app/">
 
+  <!-- Search engine verification (fill in later) -->
+  <!-- <meta name="google-site-verification" content="REPLACE_ME"> -->
+  <!-- <meta name="msvalidate.01" content="REPLACE_ME"> -->
+
   <!-- Hreflang -->
   <link rel="alternate" hreflang="he"        href="https://nailed-it-by-sarah.vercel.app/?lang=he" />
   <link rel="alternate" hreflang="en"        href="https://nailed-it-by-sarah.vercel.app/?lang=en" />
@@ -73,7 +77,7 @@
     "description": "Nailed it by Sarah is a professional nail studio in Gan Yavne, Israel, run by Sarah M. The studio specialises in gel manicures, anatomic nail builds, gel fills, French manicure, hand-painted nail art and gentle removal. Appointments are taken by WhatsApp on +972-53-272-7006 and the studio is open Sunday to Thursday from 09:00 to 21:00. Prices start at ₪80 for a basic manicure, ₪100 for a gel manicure and ₪130 for an anatomic build. סטודיו ציפורניים מקצועי בגן יבנה — מניקור ג'ל, בנייה אנטומית, לק ג'ל ועיצוב ציפורניים.",
     "url": "https://nailed-it-by-sarah.vercel.app/",
     "telephone": "+972532727006",
-    "priceRange": "₪₪",
+    "priceRange": "₪80 – ₪250",
     "image": [
       "https://nailed-it-by-sarah.vercel.app/images/nail1.jpg",
       "https://nailed-it-by-sarah.vercel.app/images/nail3.jpg",
@@ -92,12 +96,11 @@
       "longitude": 34.713484
     },
     "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
-        "opens": "09:00",
-        "closes": "21:00"
-      }
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday",    "opens": "09:00", "closes": "21:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday",    "opens": "09:00", "closes": "21:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",   "opens": "09:00", "closes": "21:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "21:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday",  "opens": "09:00", "closes": "21:00" }
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -176,6 +179,23 @@
       { "@type": "Offer", "name": "New Build", "price": "250", "priceCurrency": "ILS" },
       { "@type": "Offer", "name": "Removal", "price": "50", "priceCurrency": "ILS" }
     ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Nail Services",
+      "itemListElement": [
+        { "@type": "Offer", "name": "Basic Manicure",        "price": "80",   "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-basic" },
+        { "@type": "Offer", "name": "Gel Manicure",          "price": "100",  "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-gel" },
+        { "@type": "Offer", "name": "Anatomic Build",        "price": "130",  "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-anatomic" },
+        { "@type": "Offer", "name": "Gel Fill",              "price": "150",  "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-fill" },
+        { "@type": "Offer", "name": "New Build",             "price": "250",  "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-newbuild" },
+        { "@type": "Offer", "name": "Touch-ups",             "price": "5-10", "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-touchups" },
+        { "@type": "Offer", "name": "French / Pearl Powder", "price": "20",   "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-french" },
+        { "@type": "Offer", "name": "Design on One Nail",    "price": "5-10", "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-design1" },
+        { "@type": "Offer", "name": "Design on All Nails",   "price": "50",   "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-design-all" },
+        { "@type": "Offer", "name": "Removal",               "price": "50",   "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-removal" },
+        { "@type": "Offer", "name": "Removal + Manicure",    "price": "80",   "priceCurrency": "ILS", "url": "https://nailed-it-by-sarah.vercel.app/#service-removal-manicure" }
+      ]
+    },
     "knowsAbout": ["Gel Manicure","Nail Art","Anatomic Nail Build","French Manicure","Gel Fill","Nail Removal","Nail Design"],
     "slogan": "כל פרט הופך לאמנות",
     "foundingDate": "2020"
@@ -235,6 +255,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.instagram.com">
+  <link rel="dns-prefetch" href="https://www.instagram.com">
+  <link rel="preconnect" href="https://maps.google.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Dancing+Script:wght@600;700&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;600&family=Cairo:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -372,11 +395,11 @@
 
 
 <!-- ===== SERVICES / PRICE LIST ===== -->
-<section id="services" class="section services">
+<section id="services" class="section services" aria-labelledby="services-title">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow" data-i18n="services.eyebrow">מחירון</p>
-      <h2 data-i18n="services.title">השירותים שלנו</h2>
+      <h2 id="services-title" data-i18n="services.title">השירותים שלנו</h2>
     </div>
 
     <div class="price-board">
@@ -384,11 +407,11 @@
       <div class="price-category reveal">
         <h3 class="price-cat-title" data-i18n="services.cat1">טיפולים</h3>
         <div class="price-list">
-          <div class="price-row"><span class="price-name" data-i18n="srv.basic">מניקור בסיסי</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪80</span></div>
-          <div class="price-row"><span class="price-name" data-i18n="srv.gel">מניקור עם לק ג'ל</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪100</span></div>
-          <div class="price-row"><span class="price-name" data-i18n="srv.anatomic">מבנה אנטומי</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪130</span></div>
-          <div class="price-row"><span class="price-name" data-i18n="srv.fill">מילוי בג'ל</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪150</span></div>
-          <div class="price-row"><span class="price-name" data-i18n="srv.newbuild">בנייה חדשה</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪250</span></div>
+          <div class="price-row" id="service-basic"><span class="price-name" data-i18n="srv.basic">מניקור בסיסי</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪80</span></div>
+          <div class="price-row" id="service-gel"><span class="price-name" data-i18n="srv.gel">מניקור עם לק ג'ל</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪100</span></div>
+          <div class="price-row" id="service-anatomic"><span class="price-name" data-i18n="srv.anatomic">מבנה אנטומי</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪130</span></div>
+          <div class="price-row" id="service-fill"><span class="price-name" data-i18n="srv.fill">מילוי בג'ל</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪150</span></div>
+          <div class="price-row" id="service-newbuild"><span class="price-name" data-i18n="srv.newbuild">בנייה חדשה</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪250</span></div>
         </div>
       </div>
 
@@ -396,10 +419,10 @@
       <div class="price-category reveal">
         <h3 class="price-cat-title" data-i18n="services.cat2">תוספות</h3>
         <div class="price-list">
-          <div class="price-row"><span class="price-name" data-i18n="srv.touchup">השלמות</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪5 / ₪10</span></div>
-          <div class="price-row"><span class="price-name" data-i18n="srv.french">פרנץ' / אבקת פנינה</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">+₪20</span></div>
-          <div class="price-row"><span class="price-name" data-i18n="srv.design1">ציור על ציפורן אחד</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪5 / ₪10</span></div>
-          <div class="price-row"><span class="price-name" data-i18n="srv.designall">ציור על כל הציפורים</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪50</span></div>
+          <div class="price-row" id="service-touchup"><span class="price-name" data-i18n="srv.touchup">השלמות</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪5 / ₪10</span></div>
+          <div class="price-row" id="service-french"><span class="price-name" data-i18n="srv.french">פרנץ' / אבקת פנינה</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">+₪20</span></div>
+          <div class="price-row" id="service-design1"><span class="price-name" data-i18n="srv.design1">ציור על ציפורן אחד</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪5 / ₪10</span></div>
+          <div class="price-row" id="service-designall"><span class="price-name" data-i18n="srv.designall">ציור על כל הציפורים</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪50</span></div>
         </div>
       </div>
 
@@ -407,8 +430,8 @@
       <div class="price-category reveal">
         <h3 class="price-cat-title" data-i18n="services.cat3">הסרה</h3>
         <div class="price-list">
-          <div class="price-row"><span class="price-name" data-i18n="srv.removal">הסרה</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪50</span></div>
-          <div class="price-row"><span class="price-name" data-i18n="srv.removalmanicure">הסרה ומניקור</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪80</span></div>
+          <div class="price-row" id="service-removal"><span class="price-name" data-i18n="srv.removal">הסרה</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪50</span></div>
+          <div class="price-row" id="service-removalmanicure"><span class="price-name" data-i18n="srv.removalmanicure">הסרה ומניקור</span><span class="price-dots" aria-hidden="true"></span><span class="price-amount">₪80</span></div>
         </div>
       </div>
     </div>
@@ -424,11 +447,11 @@
 
 
 <!-- ===== GALLERY ===== -->
-<section id="gallery" class="section gallery">
+<section id="gallery" class="section gallery" aria-labelledby="gallery-title">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow" data-i18n="gallery.eyebrow">גלריה</p>
-      <h2 data-i18n="gallery.title">עבודות אחרונות</h2>
+      <h2 id="gallery-title" data-i18n="gallery.title">עבודות אחרונות</h2>
     </div>
 
     <!--
@@ -457,11 +480,11 @@
 
 
 <!-- ===== REELS ===== -->
-<section class="section reels">
+<section id="reels" class="section reels" aria-labelledby="reels-title">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow" data-i18n="reels.eyebrow">ריילס</p>
-      <h2 data-i18n="reels.title">מהסטודיו</h2>
+      <h2 id="reels-title" data-i18n="reels.title">מהסטודיו</h2>
     </div>
 
     <div class="reels-grid reveal">
@@ -485,11 +508,11 @@
 
 
 <!-- ===== REVIEWS ===== -->
-<section id="reviews" class="section reviews">
+<section id="reviews" class="section reviews" aria-labelledby="reviews-title">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow" data-i18n="reviews.eyebrow">ביקורות</p>
-      <h2 data-i18n="reviews.title">מה אומרות הלקוחות</h2>
+      <h2 id="reviews-title" data-i18n="reviews.title">מה אומרות הלקוחות</h2>
     </div>
     <div id="reviewsGrid" class="reviews-grid"></div>
     <div class="reviews-cta reveal">
@@ -503,11 +526,11 @@
 
 
 <!-- ===== FAQ ===== -->
-<section id="faq" class="section faq">
+<section id="faq" class="section faq" aria-labelledby="faq-title">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow" data-i18n="faq.eyebrow">שאלות נפוצות</p>
-      <h2 data-i18n="faq.title">כל מה שרצית לדעת</h2>
+      <h2 id="faq-title" data-i18n="faq.title">כל מה שרצית לדעת</h2>
     </div>
     <div class="faq-list reveal">
 
@@ -576,14 +599,61 @@
 </section>
 
 
+<!-- ===== AREAS WE SERVE ===== -->
+<section id="areas" class="section areas" aria-labelledby="areas-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="areas.eyebrow">איפה אנחנו</p>
+      <h2 id="areas-title" data-i18n="areas.title">אזורי שירות</h2>
+    </div>
+
+    <p class="areas-intro reveal" data-i18n="areas.intro">הסטודיו של Sarah נמצא בגן יבנה ומקבל לקוחות מכל אזור המרכז והדרום. שרה דוברת חמש שפות בשטף — עברית, אנגלית, צרפתית, ספרדית וערבית — כך שתיירים ועולים חדשים מרגישים בבית.</p>
+
+    <div class="areas-grid reveal">
+      <div class="area-card">
+        <div class="area-name" data-i18n="areas.city1">גן יבנה</div>
+        <div class="area-meta" data-i18n="areas.city1_meta">מיקום הסטודיו · 0 דקות</div>
+      </div>
+      <div class="area-card">
+        <div class="area-name" data-i18n="areas.city2">יבנה</div>
+        <div class="area-meta" data-i18n="areas.city2_meta">~5 דקות נסיעה</div>
+      </div>
+      <div class="area-card">
+        <div class="area-name" data-i18n="areas.city3">אשדוד</div>
+        <div class="area-meta" data-i18n="areas.city3_meta">~15 דקות נסיעה</div>
+      </div>
+      <div class="area-card">
+        <div class="area-name" data-i18n="areas.city4">רחובות</div>
+        <div class="area-meta" data-i18n="areas.city4_meta">~20 דקות נסיעה</div>
+      </div>
+      <div class="area-card">
+        <div class="area-name" data-i18n="areas.city5">ראשון לציון</div>
+        <div class="area-meta" data-i18n="areas.city5_meta">~25 דקות נסיעה</div>
+      </div>
+    </div>
+
+    <p class="areas-lang reveal" data-i18n="areas.lang">שפות הסטודיו: עברית · English · Français · Español · العربية</p>
+  </div>
+</section>
+
+
 <!-- ===== CONTACT ===== -->
-<section id="contact" class="section visit">
+<section id="contact" class="section visit" aria-labelledby="contact-title">
   <div class="container">
     <div class="two-col two-col--visit">
 
       <div class="visit-info reveal">
         <p class="eyebrow" data-i18n="contact.eyebrow">בואי נדבר</p>
-        <h2 data-i18n="contact.title">קבעי את התור שלך</h2>
+        <h2 id="contact-title" data-i18n="contact.title">קבעי את התור שלך</h2>
+
+        <div class="book-steps reveal" aria-label="איך מזמינים תור">
+          <h3 class="book-steps-title" data-i18n="book.title">איך מזמינים תור</h3>
+          <ol class="book-steps-list">
+            <li><span class="book-step-icon" aria-hidden="true">📱</span><span data-i18n="book.step1">שלחי הודעה בווצאפ ל-053-272-7006</span></li>
+            <li><span class="book-step-icon" aria-hidden="true">💬</span><span data-i18n="book.step2">בחרי שירות ושעה — תאשרי עם Sarah</span></li>
+            <li><span class="book-step-icon" aria-hidden="true">💅</span><span data-i18n="book.step3">הגיעי לסטודיו, עזבי עם ציפורניים מושלמות</span></li>
+          </ol>
+        </div>
 
         <div class="visit-meta">
           <div>
@@ -779,6 +849,53 @@
     { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail6.jpg", "name": "Anatomic build nail art", "caption": "Anatomic build with nail art — Gan Yavne, Israel", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } },
     { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail7.jpg", "name": "French gel manicure", "caption": "French gel manicure at a professional nail studio in Gan Yavne", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } },
     { "@type": "ImageObject", "contentUrl": "https://nailed-it-by-sarah.vercel.app/images/nail8.jpg", "name": "Nail extension and gel fill", "caption": "Nail extension and gel fill — Nailed it by Sarah", "creator": { "@id": "https://nailed-it-by-sarah.vercel.app/#sarah" } }
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (book an appointment) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to book an appointment at Nailed it by Sarah",
+  "description": "Book a nail appointment at Nailed it by Sarah in Gan Yavne in 3 steps via WhatsApp.",
+  "totalTime": "PT2M",
+  "supply": [
+    { "@type": "HowToSupply", "name": "Smartphone with WhatsApp" }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Open WhatsApp",
+      "text": "Open WhatsApp on your phone and start a new chat with +972-53-272-7006, or tap the button below to open the chat directly.",
+      "url": "https://nailed-it-by-sarah.vercel.app/#contact",
+      "image": "https://nailed-it-by-sarah.vercel.app/images/nail3.jpg"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Send your preferred date, time and service",
+      "text": "Send Sarah a message with the service you'd like (gel manicure, anatomic build, fill, etc.) and your preferred date and time. You can write in Hebrew, English, French or Spanish.",
+      "url": "https://wa.me/972532727006",
+      "image": "https://nailed-it-by-sarah.vercel.app/images/nail4.jpg"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Receive confirmation",
+      "text": "Sarah will reply on WhatsApp to confirm your appointment slot at the Gan Yavne studio (Sun–Thu, 09:00–21:00).",
+      "url": "https://wa.me/972532727006",
+      "image": "https://nailed-it-by-sarah.vercel.app/images/nail1.jpg"
+    }
+  ],
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "WhatsApp chat with Nailed it by Sarah",
+      "url": "https://wa.me/972532727006"
+    }
   ]
 }
 </script>
