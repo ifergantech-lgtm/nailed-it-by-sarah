@@ -53,8 +53,9 @@
 
 /* ===== RESET ===== */
 *, *::before, *::after { box-sizing: border-box; }
-html  { scroll-behavior: smooth; scroll-padding-top: 72px; }
-body  { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html  { scroll-behavior: smooth; scroll-padding-top: 72px; overflow-x: clip; }
+body  { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+img, iframe, video { max-width: 100%; }
 img   { max-width: 100%; display: block; }
 a     { color: inherit; text-decoration: none; }
 ul    { list-style: none; margin: 0; padding: 0; }
@@ -696,6 +697,11 @@ a.visit-value:hover { border-bottom-color: var(--ink); }
   .lightbox-prev, .lightbox-next { width: 40px; height: 40px; font-size: 1.8rem; }
   .lightbox-prev { inset-inline-start: 8px; }
   .lightbox-next { inset-inline-end: 8px; }
+
+  /* Stack the 3-column price board on mobile (was the main overflow cause) */
+  .price-board { grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
+  .price-category { padding: 24px 18px; }
+  .price-row { gap: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
@@ -756,6 +762,14 @@ a.visit-value:hover { border-bottom-color: var(--ink); }
 @media (max-width: 400px) {
   .fab-whatsapp { bottom: 1.5rem; inset-inline-end: 1rem; }
   #contact .btn-primary { margin-bottom: 5rem; }
+  .container { padding: 0 16px; }
+  .section { padding: 70px 0; }
+  .price-category { padding: 20px 14px; }
+  h1, .hero h1 { font-size: clamp(2rem, 11vw, 3.5rem) !important; }
+  h2 { font-size: 1.7rem; }
+  .reel-frame { height: 460px; }
+  .visit-info, .visit-map-wrap { padding: 0; }
+  .lang-switcher { padding: 6px 10px; }
 }
 
 
