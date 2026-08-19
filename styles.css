@@ -417,7 +417,12 @@ em {
 .ig-tile:hover::after  { opacity: 1; }
 .ig-tile:hover::before { opacity: 1; transform: translateY(0); }
 
-/* Collage layout */
+/* Collage layout — bento rhythm that repeats every 8 tiles, so any number of
+   photos (managed in the admin) still looks intentional. Images are set inline
+   from data. The static .ig-tile-N fallbacks below cover the no-JS case. */
+.ig-grid .ig-tile:nth-child(8n+1) { grid-column: span 2; grid-row: span 2; }
+.ig-grid .ig-tile:nth-child(8n+6) { grid-column: span 2; }
+
 .ig-tile-1 { grid-column: span 2; grid-row: span 2; background-image: url('images/nail1.jpg'); }
 .ig-tile-2 { background-image: url('images/nail2.jpg'); }
 .ig-tile-3 { background-image: url('images/nail3.jpg'); }
@@ -426,6 +431,22 @@ em {
 .ig-tile-6 { grid-column: span 2; background-image: url('images/nail6.jpg'); }
 .ig-tile-7 { background-image: url('images/nail7.jpg'); }
 .ig-tile-8 { background-image: url('images/nail8.jpg'); }
+
+/* Promotions banner */
+.promo-bar {
+  background: linear-gradient(135deg, var(--rose-deep, #B97A6B), var(--ink, #2A1F1B));
+  color: #fff;
+}
+.promo-bar[hidden] { display: none; }
+.promo-inner {
+  max-width: var(--container, 1200px);
+  margin: 0 auto;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: .95rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+}
 
 .ig-cta { text-align: center; margin-top: 36px; }
 

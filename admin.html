@@ -30,7 +30,7 @@
       color: var(--ink);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 100px;
+      padding-bottom: 110px;
     }
     h1, h2 { margin: 0; font-weight: 600; }
     h1 { font-size: 1.4rem; }
@@ -61,7 +61,7 @@
 
     /* Login */
     .login {
-      min-height: 80vh;
+      min-height: 82vh;
       display: flex; align-items: center; justify-content: center;
       padding: 24px;
     }
@@ -82,19 +82,21 @@
     .login-card h1 { margin-bottom: 8px; }
     .login-card p { color: var(--ink-soft); margin: 0 0 20px; font-size: .92rem; }
     .login-card input {
-      width: 100%; padding: 14px 16px;
+      width: 100%; padding: 13px 16px; margin-top: 10px;
       border: 1px solid var(--line); border-radius: 12px;
       font-size: 1rem; text-align: center;
       font-family: inherit;
     }
     .login-card input:focus { outline: 2px solid var(--rose); outline-offset: 1px; }
     .login-card button {
-      margin-top: 14px; width: 100%;
+      margin-top: 16px; width: 100%;
       background: linear-gradient(135deg, var(--ink) 0%, var(--rose-deep) 100%);
       color: #fff; border: 0; border-radius: 12px;
       padding: 14px; font-size: 1rem; font-weight: 600;
       cursor: pointer; font-family: inherit;
     }
+    .login-card button:disabled { opacity:.6; cursor: wait; }
+    .login-err { color: var(--err); font-size: .85rem; margin-top: 12px; min-height: 1.2em; }
 
     /* Sections */
     section.card {
@@ -107,9 +109,8 @@
       display: flex; align-items: center; gap: 10px;
       margin-bottom: 14px;
     }
-    .card-head .ico {
-      font-size: 1.3rem;
-    }
+    .card-head .ico { font-size: 1.3rem; }
+    .hint { color: var(--ink-soft); font-size: .82rem; }
     .field { margin: 12px 0; }
     .field label {
       display: block; font-size: .82rem; color: var(--ink-soft);
@@ -124,68 +125,79 @@
     .field input:focus, .field select:focus {
       outline: 2px solid var(--rose); outline-offset: 1px;
     }
-    .row2 {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-    }
-
-    /* Service rows */
-    .svc-cat-title {
-      font-size: .78rem; text-transform: uppercase; letter-spacing: .15em;
-      color: var(--rose-deep); margin: 16px 0 8px; font-weight: 600;
-    }
-    .svc-row {
-      display: grid;
-      grid-template-columns: 1fr 110px;
-      gap: 10px; align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .svc-row:last-child { border-bottom: 0; }
-    .svc-name { font-size: .95rem; color: var(--ink); }
-    .svc-price-input {
-      padding: 9px 11px;
-      border: 1px solid var(--line); border-radius: 8px;
-      font-size: .95rem; text-align: center; font-family: inherit;
-      font-weight: 600;
-    }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
     /* Days */
-    .days {
-      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;
-    }
+    .days { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
     .day-chip {
       padding: 7px 14px; border: 1px solid var(--line);
       border-radius: 999px; font-size: .85rem;
-      background: #fff; cursor: pointer;
-      user-select: none;
+      background: #fff; cursor: pointer; user-select: none;
     }
-    .day-chip.on {
-      background: var(--rose-deep); color: #fff; border-color: var(--rose-deep);
+    .day-chip.on { background: var(--rose-deep); color: #fff; border-color: var(--rose-deep); }
+
+    /* Services manager */
+    .svc-cat { margin-top: 6px; }
+    .svc-cat-title {
+      font-size: .78rem; text-transform: uppercase; letter-spacing: .14em;
+      color: var(--rose-deep); margin: 18px 0 8px; font-weight: 600;
+    }
+    .svc {
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 12px; margin-bottom: 10px; background: var(--cream);
+    }
+    .svc.hidden-svc { opacity: .6; }
+    .svc-top { display: grid; grid-template-columns: 1fr 104px; gap: 8px; }
+    .svc-top input {
+      width: 100%; padding: 10px 12px;
+      border: 1px solid var(--line); border-radius: 9px;
+      font-size: .95rem; font-family: inherit; background:#fff;
+    }
+    .svc-price { text-align: center; font-weight: 600; dir: ltr; }
+    .svc-meta {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      margin-top: 9px;
+    }
+    .svc-meta select {
+      padding: 7px 10px; border: 1px solid var(--line); border-radius: 9px;
+      font-family: inherit; font-size: .85rem; background:#fff; color: var(--ink);
+    }
+    .svc-actions { margin-left: auto; display: flex; gap: 6px; }
+    .icon-btn {
+      width: 34px; height: 34px; border-radius: 9px;
+      border: 1px solid var(--line); background: #fff; cursor: pointer;
+      font-size: 1rem; line-height: 1; display: grid; place-items: center;
+      color: var(--ink-soft); font-family: inherit;
+    }
+    .icon-btn:disabled { opacity: .3; cursor: default; }
+    .icon-btn.danger { color: var(--err); }
+    .toggle {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .82rem; color: var(--ink-soft); cursor: pointer; user-select: none;
+    }
+    .toggle input { width: 16px; height: 16px; accent-color: var(--rose-deep); }
+    .add-btn {
+      width: 100%; margin-top: 6px;
+      background: #fff; border: 1px dashed var(--rose);
+      color: var(--rose-deep); border-radius: 10px;
+      padding: 11px; font-size: .9rem; font-weight: 600;
+      cursor: pointer; font-family: inherit;
     }
 
     /* Gallery / Reels slots */
-    .slot {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--line);
-    }
+    .slot { padding: 10px 0; border-bottom: 1px solid var(--line); }
     .slot:last-child { border-bottom: 0; }
-    .slot label {
-      font-size: .82rem; color: var(--ink-soft); margin-bottom: 4px; display: block;
-    }
+    .slot label { font-size: .82rem; color: var(--ink-soft); margin-bottom: 4px; display: block; }
     .slot input {
       width: 100%; padding: 10px 12px;
       border: 1px solid var(--line); border-radius: 8px;
       font-size: .88rem; font-family: inherit;
       direction: ltr; text-align: left;
     }
-    .slot small {
-      display: block; color: var(--ink-soft); font-size: .75rem; margin-top: 4px;
-    }
 
     /* Save bar */
     .savebar {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
+      position: fixed; bottom: 0; left: 0; right: 0;
       padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
       background: rgba(255,246,241,.95);
       backdrop-filter: blur(14px);
@@ -198,8 +210,7 @@
       color: #fff; border: 0;
       padding: 14px 28px; border-radius: 999px;
       font-size: 1rem; font-weight: 600; font-family: inherit;
-      cursor: pointer; min-width: 180px;
-      box-shadow: var(--shadow);
+      cursor: pointer; min-width: 200px; box-shadow: var(--shadow);
     }
     .savebar button:disabled { opacity: .55; cursor: wait; }
 
@@ -209,8 +220,7 @@
       background: var(--ok); color: #fff;
       padding: 12px 22px; border-radius: 999px;
       font-size: .92rem; font-weight: 500;
-      box-shadow: var(--shadow);
-      z-index: 30;
+      box-shadow: var(--shadow); z-index: 30;
       opacity: 0; pointer-events: none;
       transition: opacity .25s, transform .25s;
       max-width: 92vw; text-align: center;
@@ -218,40 +228,64 @@
     .toast.show { opacity: 1; transform: translate(-50%, 4px); }
     .toast.err { background: var(--err); }
 
-    /* Multilingual sub-inputs */
-    .lang-group { margin-top: 6px; }
-    .lang-row {
-      display: grid;
-      grid-template-columns: 46px 1fr;
-      gap: 8px; align-items: center;
-      margin-bottom: 6px;
+    .field textarea {
+      width: 100%; padding: 11px 13px;
+      border: 1px solid var(--line); border-radius: 10px;
+      font-size: 1rem; font-family: inherit; color: var(--ink);
+      background: #fff; resize: vertical;
     }
-    .lang-tag {
-      font-size: .72rem; font-weight: 600;
-      color: var(--rose-deep);
-      text-transform: uppercase; letter-spacing: .08em;
-      text-align: center;
-      padding: 6px 0;
-      background: var(--cream-2); border-radius: 8px;
-    }
-    .lang-row input { padding: 9px 12px; font-size: .95rem; }
-    .lang-toggle {
-      background: transparent; border: 0;
-      color: var(--rose-deep); font-size: .82rem;
-      cursor: pointer; padding: 6px 0; font-family: inherit;
-      text-decoration: underline; text-underline-offset: 3px;
-    }
-    .other-langs { display: none; }
-    .other-langs.open { display: block; }
+    .field textarea:focus { outline: 2px solid var(--rose); outline-offset: 1px; }
 
-    /* Hide stuff before auth */
+    /* Dashboard stats */
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .stat {
+      background: var(--cream); border: 1px solid var(--line);
+      border-radius: 12px; padding: 12px 14px;
+    }
+    .stat .n { font-size: 1.5rem; font-weight: 700; color: var(--rose-deep); }
+    .stat .l { font-size: .78rem; color: var(--ink-soft); }
+
+    /* Gallery manager */
+    .gal-item {
+      display: grid; grid-template-columns: 70px 1fr; gap: 12px;
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 10px; margin-bottom: 10px; background: var(--cream);
+      align-items: start;
+    }
+    .gal-item.hidden-svc { opacity: .55; }
+    .gal-thumb {
+      width: 70px; height: 70px; border-radius: 9px;
+      background-size: cover; background-position: center; background-color: #eee;
+      display: grid; place-items: center; font-size: 1.4rem; color: var(--ink-soft);
+      overflow: hidden;
+    }
+    .gal-body input {
+      width: 100%; padding: 8px 10px; margin-bottom: 6px;
+      border: 1px solid var(--line); border-radius: 8px;
+      font-size: .88rem; font-family: inherit; background: #fff;
+    }
+    .gal-actions { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .gallery-add { margin-top: 6px; }
+
+    /* Promo / review cards reuse .svc look */
+    .item-card {
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 12px; margin-bottom: 10px; background: var(--cream);
+    }
+    .item-card.hidden-svc { opacity: .55; }
+    .item-card input, .item-card textarea {
+      width: 100%; padding: 9px 11px; margin-bottom: 7px;
+      border: 1px solid var(--line); border-radius: 8px;
+      font-size: .92rem; font-family: inherit; background: #fff; resize: vertical;
+    }
+    .item-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
     .gated { display: none; }
     body.authed .login { display: none; }
     body.authed .gated { display: block; }
 
     @media (max-width: 380px) {
       .row2 { grid-template-columns: 1fr; }
-      .svc-row { grid-template-columns: 1fr 90px; }
     }
   </style>
 </head>
@@ -262,9 +296,11 @@
     <form class="login-card" id="loginForm">
       <div class="brand-mark">N</div>
       <h1>Site Admin</h1>
-      <p>Enter your password to log in</p>
+      <p>Log in to manage your website</p>
+      <input type="email" id="email" autocomplete="username" placeholder="Email" required>
       <input type="password" id="pwd" autocomplete="current-password" placeholder="Password" required>
-      <button type="submit">Log in</button>
+      <button type="submit" id="loginBtn">Log in</button>
+      <div class="login-err" id="loginErr"></div>
     </form>
   </div>
 
@@ -279,6 +315,12 @@
 
   <!-- ===== ADMIN FORM ===== -->
   <div class="wrap gated">
+
+    <!-- Dashboard overview -->
+    <section class="card">
+      <div class="card-head"><span class="ico">📋</span><h2>Overview</h2></div>
+      <div class="stats" id="stats"></div>
+    </section>
 
     <!-- Contact -->
     <section class="card">
@@ -295,6 +337,42 @@
         <label for="igHandle">Instagram username (without @)</label>
         <input id="igHandle" type="text" dir="ltr" placeholder="nailed_it_by.sarah">
       </div>
+      <div class="field">
+        <label for="email">Email (optional)</label>
+        <input id="email2" type="email" dir="ltr" placeholder="hello@example.com">
+      </div>
+      <div class="field">
+        <label for="waMessage">WhatsApp welcome message (optional) — pre-fills the chat when a client taps WhatsApp</label>
+        <input id="waMessage" type="text" placeholder="Hi Sarah, I'd like to book an appointment">
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="tiktok">TikTok link (optional)</label>
+          <input id="tiktok" type="text" dir="ltr" placeholder="https://tiktok.com/@...">
+        </div>
+        <div class="field">
+          <label for="facebook">Facebook link (optional)</label>
+          <input id="facebook" type="text" dir="ltr" placeholder="https://facebook.com/...">
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="card">
+      <div class="card-head"><span class="ico">👋</span><h2>About Sarah</h2></div>
+      <small class="hint" style="display:block; margin-bottom:6px;">Write in English — translated to all languages automatically on save.</small>
+      <div class="field">
+        <label for="aboutEyebrow">Small heading above the title</label>
+        <input id="aboutEyebrow" type="text" placeholder="About Sarah">
+      </div>
+      <div class="field">
+        <label for="aboutTitle">Title</label>
+        <input id="aboutTitle" type="text" placeholder="Nail art made with heart">
+      </div>
+      <div class="field">
+        <label for="aboutBio">Bio</label>
+        <textarea id="aboutBio" rows="5" placeholder="A few sentences about Sarah…"></textarea>
+      </div>
     </section>
 
     <!-- Address -->
@@ -308,7 +386,7 @@
         <label for="city">City</label>
         <input id="city" type="text" placeholder="Gan Yavne">
       </div>
-      <small style="color:var(--ink-soft); font-size:.78rem;">Type in English. We'll translate to Hebrew, French, Spanish &amp; Arabic automatically when you save. The map pin updates automatically too.</small>
+      <small class="hint">Type in English. We'll translate to Hebrew, French, Spanish &amp; Arabic automatically when you save, and update the map pin.</small>
     </section>
 
     <!-- Hours -->
@@ -317,7 +395,7 @@
       <div class="field">
         <label for="hoursDisplay">Display text</label>
         <input id="hoursDisplay" type="text" placeholder="Sun–Thu · 09:00–21:00">
-        <small style="color:var(--ink-soft); font-size:.75rem; display:block; margin-top:4px;">Translated automatically on save.</small>
+        <small class="hint" style="display:block; margin-top:4px;">Translated automatically on save.</small>
       </div>
       <div class="row2">
         <div class="field">
@@ -345,28 +423,57 @@
 
     <!-- Services / Prices -->
     <section class="card">
-      <div class="card-head"><span class="ico">💅</span><h2>Price list</h2></div>
-      <small style="color:var(--ink-soft); font-size:.82rem;">You can edit the price of each service. To add or remove a service, contact Gabriel.</small>
+      <div class="card-head"><span class="ico">💅</span><h2>Services &amp; prices</h2></div>
+      <small class="hint" style="display:block; margin-bottom:6px;">
+        Add, rename, re-price, reorder or hide any service. Type the name in English —
+        it's translated to all languages automatically when you save.
+      </small>
       <div id="services"></div>
     </section>
 
     <!-- Gallery -->
     <section class="card">
       <div class="card-head"><span class="ico">📸</span><h2>Photo gallery</h2></div>
-      <small style="color:var(--ink-soft); font-size:.82rem; display:block; margin-bottom:8px;">
-        Paste the link of an Instagram post into each slot<br>
-        (long-press on the post → "Copy Link"). Leave empty to keep the current photo.
+      <small class="hint" style="display:block; margin-bottom:10px;">
+        Upload photos straight from your phone, reorder them, hide or delete them.
+        Photos are resized automatically so the site stays fast.
       </small>
       <div id="gallery"></div>
+      <div class="gallery-add">
+        <label class="add-btn" for="galFile" style="display:block;">📷 Add photo from your phone</label>
+        <input id="galFile" type="file" accept="image/*" multiple style="display:none;">
+        <button type="button" class="add-btn js-add-ig" style="margin-top:8px;">🔗 Add an Instagram post instead</button>
+      </div>
     </section>
 
     <!-- Reels -->
     <section class="card">
       <div class="card-head"><span class="ico">🎬</span><h2>Reels</h2></div>
-      <small style="color:var(--ink-soft); font-size:.82rem; display:block; margin-bottom:8px;">
+      <small class="hint" style="display:block; margin-bottom:8px;">
         Paste the link of an Instagram reel into each slot.
       </small>
       <div id="reels"></div>
+    </section>
+
+    <!-- Promotions -->
+    <section class="card">
+      <div class="card-head"><span class="ico">🎉</span><h2>Promotions</h2></div>
+      <small class="hint" style="display:block; margin-bottom:8px;">
+        Show a banner at the top of the site (e.g. a holiday offer). Write in English —
+        translated automatically. Hide it any time. The first visible promotion is shown.
+      </small>
+      <div id="promotions"></div>
+      <button type="button" class="add-btn" id="addPromo">+ Add a promotion</button>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="card">
+      <div class="card-head"><span class="ico">⭐</span><h2>Reviews</h2></div>
+      <small class="hint" style="display:block; margin-bottom:8px;">
+        Manage the reviews shown on the site. Add, edit, reorder, hide or remove.
+      </small>
+      <div id="testimonials"></div>
+      <button type="button" class="add-btn" id="addTesti">+ Add a review</button>
     </section>
 
   </div>
@@ -376,48 +483,64 @@
     <button type="button" id="saveBtn">💾 Save &amp; publish</button>
   </div>
 
-  <!-- Toast -->
   <div class="toast" id="toast"></div>
 
 <script>
 (function () {
-  const PWD_KEY = 'nibs_admin_pwd';
   const $ = (id) => document.getElementById(id);
   let DATA = null;
+  let svcState = [];    // working copy of services
+  let galState = [];    // working copy of gallery
+  let promoState = [];  // working copy of promotions
+  let testiState = [];  // working copy of testimonials
 
-  // Helper: a multilingual field may be stored as a string or as { he, en, fr, es, ar }.
-  // For the admin, we always show the English value.
+  const SERVICE_LABELS = {
+    treatments: 'Treatments', addons: 'Add-ons', removal: 'Removal'
+  };
+
+  // A multilingual field may be a string or { he, en, fr, es, ar }. Admin shows English.
   function pickEn(v) {
     if (v == null) return '';
     if (typeof v === 'string') return v;
     return v.en || v.he || Object.values(v).find(Boolean) || '';
   }
 
-  // ===== UI helpers =====
   function toast(msg, isErr) {
     const t = $('toast');
     t.textContent = msg;
     t.className = 'toast show' + (isErr ? ' err' : '');
     clearTimeout(toast._t);
-    toast._t = setTimeout(() => { t.className = 'toast'; }, 3800);
+    toast._t = setTimeout(() => { t.className = 'toast'; }, 4200);
   }
 
   // ===== Auth =====
-  $('loginForm').addEventListener('submit', (e) => {
+  $('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const pwd = $('pwd').value.trim();
-    if (!pwd) return;
-    sessionStorage.setItem(PWD_KEY, pwd);
-    enterAdmin();
+    const btn = $('loginBtn');
+    $('loginErr').textContent = '';
+    btn.disabled = true; btn.textContent = 'Logging in…';
+    try {
+      const r = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: $('email').value.trim(), password: $('pwd').value })
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || 'Login failed. Please try again.');
+      $('pwd').value = '';
+      await enterAdmin();
+    } catch (err) {
+      $('loginErr').textContent = err.message;
+    } finally {
+      btn.disabled = false; btn.textContent = 'Log in';
+    }
   });
 
-  $('logoutBtn').addEventListener('click', () => {
-    sessionStorage.removeItem(PWD_KEY);
+  $('logoutBtn').addEventListener('click', async () => {
+    try { await fetch('/api/logout', { method: 'POST' }); } catch (e) {}
     document.body.classList.remove('authed');
-    $('pwd').value = '';
+    DATA = null; svcState = [];
   });
-
-  function getPwd() { return sessionStorage.getItem(PWD_KEY) || ''; }
 
   async function enterAdmin() {
     document.body.classList.add('authed');
@@ -431,18 +554,26 @@
     DATA = await r.json();
   }
 
-  // ===== Populate forms =====
+  // ===== Populate =====
   function populate() {
-    // Phone
     $('phoneIntl').value    = DATA.phone?.intl    || '';
     $('phoneDisplay').value = DATA.phone?.display || '';
     $('igHandle').value     = DATA.instagram      || '';
 
-    // Address — admin shows EN only; server auto-translates on save
+    // Contact extras
+    $('email2').value    = DATA.contact?.email     || '';
+    $('waMessage').value = DATA.contact?.waMessage || '';
+    $('tiktok').value    = DATA.contact?.tiktok    || '';
+    $('facebook').value  = DATA.contact?.facebook  || '';
+
     $('street').value = pickEn(DATA.address?.street);
     $('city').value   = pickEn(DATA.address?.city);
 
-    // Hours
+    // About
+    $('aboutEyebrow').value = pickEn(DATA.about?.eyebrow);
+    $('aboutTitle').value   = pickEn(DATA.about?.title);
+    $('aboutBio').value     = pickEn(DATA.about?.bio);
+
     $('hoursDisplay').value = pickEn(DATA.hours?.display);
     $('opens').value  = DATA.hours?.opens  || '';
     $('closes').value = DATA.hours?.closes || '';
@@ -453,86 +584,348 @@
       chip.onclick = () => chip.classList.toggle('on');
     });
 
-    // Services
+    // Services → working copy
+    svcState = (DATA.services || []).map(s => ({
+      id: s.id || '',
+      name: s.name || null,
+      nameEn: pickEn(s.name),
+      price: s.price || '',
+      category: s.category || 'treatments',
+      published: s.published !== false
+    }));
     renderServices();
 
-    // Gallery
+    // Gallery → working copy
+    galState = (DATA.gallery || []).map(g => ({
+      id: g.id || '',
+      image: g.image || '',
+      shortcode: g.shortcode || '',
+      alt: g.alt || '',
+      published: g.published !== false
+    }));
     renderGallery();
-
-    // Reels
     renderReels();
+
+    // Promotions → working copy
+    promoState = (DATA.promotions || []).map(p => ({
+      id: p.id || '',
+      text: (p.text && typeof p.text === 'object') ? p.text : null,
+      textEn: pickEn(p.text),
+      published: p.published !== false
+    }));
+    renderPromotions();
+
+    // Testimonials → working copy
+    testiState = (DATA.testimonials || []).map(t => ({
+      id: t.id || '',
+      name: t.name || '',
+      text: t.text || '',
+      published: t.published !== false
+    }));
+    renderTestimonials();
+
+    renderStats();
   }
 
+  function renderStats() {
+    const pub = (arr) => (arr || []).filter(x => x.published !== false).length;
+    const stats = [
+      { n: svcState.length, l: 'Services' },
+      { n: galState.length, l: 'Gallery photos' },
+      { n: testiState.length, l: 'Reviews' },
+      { n: pub(promoState), l: 'Active promotions' }
+    ];
+    $('stats').innerHTML = stats.map(s =>
+      `<div class="stat"><div class="n">${s.n}</div><div class="l">${s.l}</div></div>`).join('');
+  }
+
+  function categoriesInOrder() {
+    const cats = (DATA.serviceCategories || []).slice().sort((a, b) => (a.order || 0) - (b.order || 0));
+    return cats.length ? cats : [
+      { id: 'treatments' }, { id: 'addons' }, { id: 'removal' }
+    ];
+  }
+  function catLabel(id) {
+    const c = (DATA.serviceCategories || []).find(x => x.id === id);
+    return (c && pickEn(c.name)) || SERVICE_LABELS[id] || id;
+  }
+
+  // ===== Services manager =====
   function renderServices() {
     const wrap = $('services');
     wrap.innerHTML = '';
-    const cats = {
-      treatments: 'Treatments',
-      addons:     'Add-ons',
-      removal:    'Removal'
-    };
-    Object.entries(cats).forEach(([catKey, catLabel]) => {
-      const items = DATA.services.filter(s => s.category === catKey);
-      if (!items.length) return;
-      const h = document.createElement('div');
-      h.className = 'svc-cat-title';
-      h.textContent = catLabel;
-      wrap.appendChild(h);
-      items.forEach(s => {
-        const row = document.createElement('div');
-        row.className = 'svc-row';
-        row.innerHTML = `
-          <span class="svc-name">${labelForService(s.id)}</span>
-          <input class="svc-price-input" data-id="${s.id}" type="text" value="${s.price || ''}" dir="ltr">
-        `;
-        wrap.appendChild(row);
+    const cats = categoriesInOrder();
+    const catOptions = cats.map(c =>
+      `<option value="${c.id}">${catLabel(c.id)}</option>`).join('');
+
+    cats.forEach(cat => {
+      const group = document.createElement('div');
+      group.className = 'svc-cat';
+      const title = document.createElement('div');
+      title.className = 'svc-cat-title';
+      title.textContent = catLabel(cat.id);
+      group.appendChild(title);
+
+      const inCat = svcState.filter(s => s.category === cat.id);
+      inCat.forEach(svc => {
+        const idx = svcState.indexOf(svc);
+        const firstInCat = inCat[0] === svc;
+        const lastInCat  = inCat[inCat.length - 1] === svc;
+        const el = document.createElement('div');
+        el.className = 'svc' + (svc.published ? '' : ' hidden-svc');
+        el.innerHTML = `
+          <div class="svc-top">
+            <input type="text" class="js-name" placeholder="Service name (English)" value="${escapeAttr(svc.nameEn)}">
+            <input type="text" class="js-price svc-price" dir="ltr" placeholder="₪0" value="${escapeAttr(svc.price)}">
+          </div>
+          <div class="svc-meta">
+            <select class="js-cat">${catOptions}</select>
+            <label class="toggle"><input type="checkbox" class="js-pub" ${svc.published ? 'checked' : ''}> Visible on website</label>
+            <span class="svc-actions">
+              <button class="icon-btn js-up" title="Move up" ${firstInCat ? 'disabled' : ''}>↑</button>
+              <button class="icon-btn js-down" title="Move down" ${lastInCat ? 'disabled' : ''}>↓</button>
+              <button class="icon-btn danger js-del" title="Delete">🗑</button>
+            </span>
+          </div>`;
+
+        el.querySelector('.js-cat').value = svc.category;
+
+        el.querySelector('.js-name').addEventListener('input', e => { svc.nameEn = e.target.value; });
+        el.querySelector('.js-price').addEventListener('input', e => { svc.price = e.target.value; });
+        el.querySelector('.js-cat').addEventListener('change', e => { svc.category = e.target.value; renderServices(); });
+        el.querySelector('.js-pub').addEventListener('change', e => {
+          svc.published = e.target.checked;
+          el.classList.toggle('hidden-svc', !svc.published);
+        });
+        el.querySelector('.js-up').addEventListener('click', () => moveWithinCat(idx, -1));
+        el.querySelector('.js-down').addEventListener('click', () => moveWithinCat(idx, 1));
+        el.querySelector('.js-del').addEventListener('click', () => {
+          const nm = svc.nameEn.trim() || 'this service';
+          if (confirm('Delete "' + nm + '"? This cannot be undone after you save.')) {
+            svcState.splice(idx, 1);
+            renderServices();
+          }
+        });
+
+        group.appendChild(el);
       });
+
+      const addBtn = document.createElement('button');
+      addBtn.className = 'add-btn';
+      addBtn.type = 'button';
+      addBtn.textContent = '+ Add service to ' + catLabel(cat.id);
+      addBtn.addEventListener('click', () => {
+        svcState.push({ id: '', name: null, nameEn: '', price: '', category: cat.id, published: true });
+        renderServices();
+        const inputs = wrap.querySelectorAll('.js-name');
+        if (inputs.length) inputs[inputs.length - 1].focus();
+      });
+      group.appendChild(addBtn);
+
+      wrap.appendChild(group);
     });
   }
 
-  function labelForService(id) {
-    // English labels for the admin UI
-    const EN = {
-      basic: 'Basic manicure',
-      gel: 'Gel polish manicure',
-      anatomic: 'Anatomic build',
-      fill: 'Gel fill',
-      newbuild: 'New build',
-      touchup: 'Touch-ups',
-      french: 'French / pearl powder',
-      design1: 'Art on one nail',
-      designall: 'Art on all nails',
-      removal: 'Removal',
-      removalmanicure: 'Removal + manicure'
-    };
-    return EN[id] || id;
+  // Swap a service with its neighbour in the same category.
+  function moveWithinCat(idx, dir) {
+    const svc = svcState[idx];
+    const sameCat = svcState.filter(s => s.category === svc.category);
+    const posInCat = sameCat.indexOf(svc);
+    const target = sameCat[posInCat + dir];
+    if (!target) return;
+    const targetIdx = svcState.indexOf(target);
+    svcState[idx] = target;
+    svcState[targetIdx] = svc;
+    renderServices();
   }
 
+  // ===== Gallery manager (uploads + reorder + hide + delete) =====
   function renderGallery() {
     const wrap = $('gallery');
     wrap.innerHTML = '';
-    for (let i = 0; i < 8; i++) {
-      const g = DATA.gallery[i] || {};
-      const slot = document.createElement('div');
-      slot.className = 'slot';
-      slot.innerHTML = `
-        <label>Photo ${i + 1}</label>
-        <input data-gallery="${i}" type="text" placeholder="https://www.instagram.com/p/..." value="${g.shortcode ? 'https://www.instagram.com/p/' + g.shortcode + '/' : ''}">
-      `;
-      wrap.appendChild(slot);
+    galState.forEach((g, idx) => {
+      const el = document.createElement('div');
+      el.className = 'gal-item' + (g.published ? '' : ' hidden-svc');
+      const thumbStyle = g.image ? `background-image:url('${escapeAttr(g.image)}')` : '';
+      const thumbInner = g.image ? '' : (g.shortcode ? '🔗' : '📷');
+      el.innerHTML = `
+        <div class="gal-thumb" style="${thumbStyle}">${thumbInner}</div>
+        <div class="gal-body">
+          <input class="js-alt" type="text" placeholder="Photo description (for accessibility)" value="${escapeAttr(g.alt)}">
+          ${g.shortcode ? `<input class="js-ig" type="text" dir="ltr" placeholder="https://www.instagram.com/p/..." value="${escapeAttr('https://www.instagram.com/p/' + g.shortcode + '/')}">` : ''}
+          <div class="gal-actions">
+            <label class="toggle"><input type="checkbox" class="js-pub" ${g.published ? 'checked' : ''}> Visible</label>
+            <span class="svc-actions">
+              <button class="icon-btn js-up" title="Move up" ${idx === 0 ? 'disabled' : ''}>↑</button>
+              <button class="icon-btn js-down" title="Move down" ${idx === galState.length - 1 ? 'disabled' : ''}>↓</button>
+              <button class="icon-btn danger js-del" title="Delete">🗑</button>
+            </span>
+          </div>
+        </div>`;
+      el.querySelector('.js-alt').addEventListener('input', e => { g.alt = e.target.value; });
+      const igInp = el.querySelector('.js-ig');
+      if (igInp) igInp.addEventListener('input', e => { g.shortcode = e.target.value; });
+      el.querySelector('.js-pub').addEventListener('change', e => {
+        g.published = e.target.checked;
+        el.classList.toggle('hidden-svc', !g.published);
+        renderStats();
+      });
+      el.querySelector('.js-up').addEventListener('click', () => { swap(galState, idx, idx - 1); renderGallery(); });
+      el.querySelector('.js-down').addEventListener('click', () => { swap(galState, idx, idx + 1); renderGallery(); });
+      el.querySelector('.js-del').addEventListener('click', () => {
+        if (confirm('Remove this photo? This cannot be undone after you save.')) {
+          galState.splice(idx, 1); renderGallery(); renderStats();
+        }
+      });
+      wrap.appendChild(el);
+    });
+  }
+
+  function swap(arr, i, j) {
+    if (j < 0 || j >= arr.length) return;
+    const t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+
+  // Resize/compress an image file in the browser before upload.
+  function resizeImage(file, maxDim, quality) {
+    return new Promise((resolve, reject) => {
+      const fr = new FileReader();
+      fr.onerror = () => reject(new Error('Could not read the file.'));
+      fr.onload = () => {
+        const img = new Image();
+        img.onerror = () => reject(new Error('That file isn’t a valid image.'));
+        img.onload = () => {
+          let { width, height } = img;
+          const max = Math.max(width, height);
+          if (max > maxDim) { const s = maxDim / max; width = Math.round(width * s); height = Math.round(height * s); }
+          const canvas = document.createElement('canvas');
+          canvas.width = width; canvas.height = height;
+          canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+          resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+        img.src = fr.result;
+      };
+      fr.readAsDataURL(file);
+    });
+  }
+
+  async function uploadFiles(files) {
+    for (const file of files) {
+      if (!file.type.startsWith('image/')) { toast('Please choose image files only.', true); continue; }
+      try {
+        toast('Uploading photo…');
+        const dataUrl = await resizeImage(file, 1600, 0.82);
+        const r = await fetch('/api/upload', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: dataUrl })
+        });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(j.error || 'Upload failed.');
+        galState.push({ id: '', image: j.path, shortcode: '', alt: '', published: true });
+        renderGallery(); renderStats();
+        toast('Photo added.');
+      } catch (e) {
+        toast(e.message || 'This photo couldn’t be uploaded.', true);
+      }
     }
   }
+
+  $('galFile').addEventListener('change', (e) => {
+    const files = Array.from(e.target.files || []);
+    e.target.value = '';
+    if (files.length) uploadFiles(files);
+  });
+  document.querySelector('.js-add-ig').addEventListener('click', () => {
+    galState.push({ id: '', image: '', shortcode: '', alt: '', published: true });
+    renderGallery(); renderStats();
+    const igs = $('gallery').querySelectorAll('.js-ig');
+    if (igs.length) igs[igs.length - 1].focus();
+  });
+
+  // ===== Promotions manager =====
+  function renderPromotions() {
+    const wrap = $('promotions');
+    wrap.innerHTML = '';
+    promoState.forEach((p, idx) => {
+      const el = document.createElement('div');
+      el.className = 'item-card' + (p.published ? '' : ' hidden-svc');
+      el.innerHTML = `
+        <input class="js-ptext" type="text" placeholder="e.g. Holiday offer — 15% off (English)" value="${escapeAttr(p.textEn)}">
+        <div class="item-actions">
+          <label class="toggle"><input type="checkbox" class="js-pub" ${p.published ? 'checked' : ''}> Visible on website</label>
+          <span class="svc-actions">
+            <button class="icon-btn js-up" ${idx === 0 ? 'disabled' : ''}>↑</button>
+            <button class="icon-btn js-down" ${idx === promoState.length - 1 ? 'disabled' : ''}>↓</button>
+            <button class="icon-btn danger js-del">🗑</button>
+          </span>
+        </div>`;
+      el.querySelector('.js-ptext').addEventListener('input', e => { p.textEn = e.target.value; });
+      el.querySelector('.js-pub').addEventListener('change', e => {
+        p.published = e.target.checked; el.classList.toggle('hidden-svc', !p.published); renderStats();
+      });
+      el.querySelector('.js-up').addEventListener('click', () => { swap(promoState, idx, idx - 1); renderPromotions(); });
+      el.querySelector('.js-down').addEventListener('click', () => { swap(promoState, idx, idx + 1); renderPromotions(); });
+      el.querySelector('.js-del').addEventListener('click', () => {
+        if (confirm('Remove this promotion?')) { promoState.splice(idx, 1); renderPromotions(); renderStats(); }
+      });
+      wrap.appendChild(el);
+    });
+  }
+  $('addPromo').addEventListener('click', () => {
+    promoState.push({ id: '', text: null, textEn: '', published: true });
+    renderPromotions(); renderStats();
+    const inps = $('promotions').querySelectorAll('.js-ptext');
+    if (inps.length) inps[inps.length - 1].focus();
+  });
+
+  // ===== Testimonials manager =====
+  function renderTestimonials() {
+    const wrap = $('testimonials');
+    wrap.innerHTML = '';
+    testiState.forEach((t, idx) => {
+      const el = document.createElement('div');
+      el.className = 'item-card' + (t.published ? '' : ' hidden-svc');
+      el.innerHTML = `
+        <input class="js-tname" type="text" placeholder="Client name" value="${escapeAttr(t.name)}">
+        <textarea class="js-ttext" rows="3" placeholder="What the client said…">${escapeAttr(t.text)}</textarea>
+        <div class="item-actions">
+          <label class="toggle"><input type="checkbox" class="js-pub" ${t.published ? 'checked' : ''}> Visible on website</label>
+          <span class="svc-actions">
+            <button class="icon-btn js-up" ${idx === 0 ? 'disabled' : ''}>↑</button>
+            <button class="icon-btn js-down" ${idx === testiState.length - 1 ? 'disabled' : ''}>↓</button>
+            <button class="icon-btn danger js-del">🗑</button>
+          </span>
+        </div>`;
+      el.querySelector('.js-tname').addEventListener('input', e => { t.name = e.target.value; });
+      el.querySelector('.js-ttext').addEventListener('input', e => { t.text = e.target.value; });
+      el.querySelector('.js-pub').addEventListener('change', e => {
+        t.published = e.target.checked; el.classList.toggle('hidden-svc', !t.published); renderStats();
+      });
+      el.querySelector('.js-up').addEventListener('click', () => { swap(testiState, idx, idx - 1); renderTestimonials(); });
+      el.querySelector('.js-down').addEventListener('click', () => { swap(testiState, idx, idx + 1); renderTestimonials(); });
+      el.querySelector('.js-del').addEventListener('click', () => {
+        if (confirm('Remove this review?')) { testiState.splice(idx, 1); renderTestimonials(); renderStats(); }
+      });
+      wrap.appendChild(el);
+    });
+  }
+  $('addTesti').addEventListener('click', () => {
+    testiState.push({ id: '', name: '', text: '', published: true });
+    renderTestimonials(); renderStats();
+    const inps = $('testimonials').querySelectorAll('.js-tname');
+    if (inps.length) inps[inps.length - 1].focus();
+  });
 
   function renderReels() {
     const wrap = $('reels');
     wrap.innerHTML = '';
     for (let i = 0; i < 2; i++) {
+      const rc = (DATA.reels && DATA.reels[i]) || '';
       const slot = document.createElement('div');
       slot.className = 'slot';
       slot.innerHTML = `
         <label>Reel ${i + 1}</label>
-        <input data-reel="${i}" type="text" placeholder="https://www.instagram.com/reel/..." value="${DATA.reels[i] ? 'https://www.instagram.com/reel/' + DATA.reels[i] + '/' : ''}">
-      `;
+        <input data-reel="${i}" type="text" placeholder="https://www.instagram.com/reel/..." value="${rc ? 'https://www.instagram.com/reel/' + rc + '/' : ''}">`;
       wrap.appendChild(slot);
     }
   }
@@ -541,18 +934,9 @@
   function collect() {
     const out = { ...DATA };
 
-    out.phone = {
-      intl:    $('phoneIntl').value.trim(),
-      display: $('phoneDisplay').value.trim()
-    };
+    out.phone = { intl: $('phoneIntl').value.trim(), display: $('phoneDisplay').value.trim() };
     out.instagram = $('igHandle').value.trim().replace(/^@/, '');
-
-    out.address = {
-      ...DATA.address,
-      street: $('street').value.trim(),
-      city:   $('city').value.trim()
-    };
-
+    out.address = { ...DATA.address, street: $('street').value.trim(), city: $('city').value.trim() };
     out.hours = {
       display: $('hoursDisplay').value.trim(),
       opens:   $('opens').value,
@@ -560,20 +944,61 @@
       days: Array.from($('days').querySelectorAll('.day-chip.on')).map(c => c.dataset.day)
     };
 
-    // Service prices
-    out.services = DATA.services.map(s => {
-      const inp = document.querySelector(`.svc-price-input[data-id="${s.id}"]`);
-      return { ...s, price: inp ? inp.value.trim() : s.price };
-    });
+    // Services — assign order within each category, drop fully-empty rows.
+    const perCat = {};
+    out.services = svcState
+      .filter(s => s.nameEn.trim() || s.price.trim())
+      .map(s => {
+        perCat[s.category] = (perCat[s.category] || 0) + 1;
+        return {
+          id: s.id || '',
+          category: s.category,
+          order: perCat[s.category],
+          published: !!s.published,
+          price: s.price.trim(),
+          name: s.name || null,
+          nameEn: s.nameEn.trim()
+        };
+      });
 
-    // Gallery — let server normalize the URL → shortcode
-    out.gallery = Array.from(document.querySelectorAll('[data-gallery]')).map((inp, i) => ({
-      shortcode: inp.value.trim(),
-      image: DATA.gallery[i]?.image || `/images/nail${i + 1}.jpg`
-    }));
+    // Gallery — from the manager, keep order, drop empty rows.
+    out.gallery = galState
+      .filter(g => g.image || (g.shortcode && g.shortcode.trim()))
+      .map((g, i) => ({
+        id: g.id || '',
+        image: g.image || '',
+        shortcode: (g.shortcode || '').trim(),
+        alt: (g.alt || '').trim(),
+        order: i + 1,
+        published: !!g.published
+      }));
 
-    // Reels — let server normalize too
     out.reels = Array.from(document.querySelectorAll('[data-reel]')).map(inp => inp.value.trim());
+
+    // About (English inputs; server translates)
+    out.about = {
+      eyebrowEn: $('aboutEyebrow').value.trim(), eyebrow: DATA.about?.eyebrow || null,
+      titleEn:   $('aboutTitle').value.trim(),   title:   DATA.about?.title   || null,
+      bioEn:     $('aboutBio').value.trim(),     bio:     DATA.about?.bio     || null
+    };
+
+    // Contact extras
+    out.contact = {
+      email:     $('email2').value.trim(),
+      waMessage: $('waMessage').value.trim(),
+      tiktok:    $('tiktok').value.trim(),
+      facebook:  $('facebook').value.trim()
+    };
+
+    // Promotions
+    out.promotions = promoState
+      .filter(p => (p.textEn || '').trim())
+      .map((p, i) => ({ id: p.id || '', text: p.text || null, textEn: p.textEn.trim(), order: i + 1, published: !!p.published }));
+
+    // Testimonials
+    out.testimonials = testiState
+      .filter(t => (t.text || '').trim())
+      .map((t, i) => ({ id: t.id || '', name: t.name.trim(), text: t.text.trim(), order: i + 1, published: !!t.published }));
 
     return out;
   }
@@ -581,21 +1006,25 @@
   $('saveBtn').addEventListener('click', async () => {
     const btn = $('saveBtn');
     btn.disabled = true;
-    btn.textContent = 'Saving & translating...';
+    btn.textContent = 'Saving & translating…';
     try {
       const data = collect();
       const r = await fetch('/api/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password: getPwd(), data })
+        body: JSON.stringify({ data })
       });
-      const j = await r.json();
+      const j = await r.json().catch(() => ({}));
       if (!r.ok) {
-        if (r.status === 401) sessionStorage.removeItem(PWD_KEY);
-        throw new Error(j.error || 'Error');
+        if (r.status === 401) {
+          document.body.classList.remove('authed');
+          throw new Error('Your session expired. Please log in again.');
+        }
+        throw new Error(j.error || 'We couldn’t save your changes. Please try again.');
       }
-      toast(j.message || 'Saved successfully');
-      DATA = data; // optimistic update
+      toast(j.message || 'Saved.');
+      // Refresh working copy from what we sent (server fills ids/translations on next load).
+      DATA = data;
     } catch (e) {
       toast(e.message || 'Save failed', true);
     } finally {
@@ -604,8 +1033,18 @@
     }
   });
 
-  // ===== Auto-login if password remembered this session =====
-  if (getPwd()) enterAdmin();
+  function escapeAttr(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  // ===== On load: resume session if the cookie is still valid =====
+  (async function init() {
+    try {
+      const r = await fetch('/api/session', { cache: 'no-store' });
+      if (r.ok) await enterAdmin();
+    } catch (e) { /* show login */ }
+  })();
 })();
 </script>
 </body>

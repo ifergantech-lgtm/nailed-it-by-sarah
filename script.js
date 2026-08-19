@@ -665,18 +665,9 @@ function applySiteData() {
     }
   }
 
-  // Prices in service list
-  if (Array.isArray(d.services)) {
-    d.services.forEach(s => {
-      if (!s.i18nKey || !s.price) return;
-      const nameEl = document.querySelector('[data-i18n="' + s.i18nKey + '"]');
-      if (!nameEl) return;
-      const row = nameEl.closest('.price-row');
-      if (!row) return;
-      const amount = row.querySelector('.price-amount');
-      if (amount) amount.textContent = s.price;
-    });
-  }
+  // Prices, names & categories — the whole price board is rendered from data
+  // so services can be added, removed, reordered, hidden or renamed by the admin.
+  renderPriceBoard(d, lang);
 
   // Reels
   if (Array.isArray(d.reels)) {
@@ -688,18 +679,126 @@ function applySiteData() {
     });
   }
 
-  // Gallery — replace tile with Instagram embed when shortcode is set
-  if (Array.isArray(d.gallery)) {
-    d.gallery.forEach((g, i) => {
-      const cls = 'ig-tile-' + (i + 1);
-      const tile = document.querySelector('.' + cls);
-      if (!tile || !g.shortcode) return;
-      if (tile.tagName === 'IFRAME' || tile.querySelector('iframe')) return; // already done
-      const wrap = document.createElement('div');
-      wrap.className = tile.className.replace('ig-tile', 'ig-embed');
-      wrap.style.cssText = 'overflow:hidden; border-radius:18px; background:#000;';
-      wrap.innerHTML = '<iframe src="https://www.instagram.com/p/' + g.shortcode + '/embed/" frameborder="0" scrolling="no" allowtransparency="true" allow="encrypted-media" loading="lazy" style="width:100%; height:100%; border:0; display:block;"></iframe>';
-      tile.parentNode.replaceChild(wrap, tile);
+  // Gallery, about text, promotions, contact extras — all from data
+  renderGallery(d, lang);
+  renderAbout(d, lang);
+  renderPromotions(d, lang);
+  renderContactExtras(d, lang);
+}
+
+/* ===== RENDER PRICE BOARD (from admin-editable data) ===== */
+function escHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"]/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]
+  ));
+}
+
+function renderPriceBoard(d, lang) {
+  const board = document.querySelector('.price-board');
+  if (!board) return;
+  if (!Array.isArray(d.serviceCategories) || !Array.isArray(d.services)) return;
+
+  const cats = d.serviceCategories
+    .slice()
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
+  const services = d.services
+    .filter((s) => s.published !== false && s.price)
+    .slice()
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
+
+  let html = '';
+  cats.forEach((cat) => {
+    const items = services.filter((s) => s.category === cat.id);
+    if (!items.length) return;
+    html += '<div class="price-category reveal in">';
+    html += '<h3 class="price-cat-title">' + escHtml(pickLang(cat.name, lang)) + '</h3>';
+    html += '<div class="price-list">';
+    items.forEach((s) => {
+      html += '<div class="price-row" id="service-' + escHtml(s.id) + '">'
+        + '<span class="price-name">' + escHtml(pickLang(s.name, lang)) + '</span>'
+        + '<span class="price-dots" aria-hidden="true"></span>'
+        + '<span class="price-amount">' + escHtml(s.price) + '</span>'
+        + '</div>';
+    });
+    html += '</div></div>';
+  });
+
+  if (html) board.innerHTML = html;
+}
+
+/* ===== RENDER GALLERY (uploaded photos or Instagram embeds, from data) ===== */
+function renderGallery(d, lang) {
+  const grid = document.querySelector('.ig-grid');
+  if (!grid || !Array.isArray(d.gallery)) return;
+
+  const items = d.gallery
+    .filter((g) => g.published !== false && (g.image || g.shortcode))
+    .slice()
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
+  if (!items.length) return;
+
+  let html = '';
+  items.forEach((g, i) => {
+    if (g.shortcode) {
+      html += '<div class="ig-tile ig-embed reveal in" style="overflow:hidden;background:#000;">'
+        + '<iframe src="https://www.instagram.com/p/' + escHtml(g.shortcode) + '/embed/" frameborder="0" scrolling="no" allowtransparency="true" allow="encrypted-media" loading="lazy" style="width:100%;height:100%;border:0;display:block;"></iframe>'
+        + '</div>';
+    } else {
+      const alt = escHtml(g.alt || 'Nail art by Sarah');
+      html += '<button class="ig-tile reveal in" aria-label="' + alt + '"'
+        + ' data-img="' + escHtml(g.image) + '" data-idx="' + i + '"'
+        + ' style="background-image:url(\'' + escHtml(g.image) + '\')"></button>';
+    }
+  });
+  grid.innerHTML = html;
+  initLightbox();
+}
+
+/* ===== RENDER ABOUT (editable bio/title, from data) ===== */
+function renderAbout(d, lang) {
+  if (!d.about) return;
+  const set = (key, val) => {
+    const el = document.querySelector('[data-i18n="' + key + '"]');
+    if (el && val) el.textContent = val;
+  };
+  set('about.eyebrow', pickLang(d.about.eyebrow, lang));
+  set('about.title', pickLang(d.about.title, lang));
+  set('about.bio', pickLang(d.about.bio, lang));
+}
+
+/* ===== RENDER PROMOTIONS (banner, from data) ===== */
+function renderPromotions(d, lang) {
+  const bar = document.getElementById('promoBar');
+  if (!bar) return;
+  const promos = (d.promotions || [])
+    .filter((p) => p.published !== false && pickLang(p.text, lang))
+    .slice()
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
+  if (!promos.length) { bar.hidden = true; bar.innerHTML = ''; return; }
+  bar.innerHTML = '<div class="promo-inner">'
+    + '<span class="promo-text">' + escHtml(pickLang(promos[0].text, lang)) + '</span>'
+    + '</div>';
+  bar.hidden = false;
+}
+
+/* ===== RENDER CONTACT EXTRAS (email + WhatsApp message, from data) ===== */
+function renderContactExtras(d, lang) {
+  const c = d.contact || {};
+  // Pre-fill WhatsApp links with an editable default message.
+  if (c.waMessage) {
+    document.querySelectorAll('a[href*="wa.me/"]').forEach((a) => {
+      try {
+        const u = new URL(a.href);
+        u.search = 'text=' + encodeURIComponent(c.waMessage);
+        a.href = u.toString();
+      } catch (e) { /* ignore */ }
+    });
+  }
+  // Email links, if any exist on the page.
+  if (c.email) {
+    document.querySelectorAll('a[data-contact="email"]').forEach((a) => {
+      a.href = 'mailto:' + c.email;
+      a.hidden = false;
     });
   }
 }
@@ -711,18 +810,28 @@ function renderReviews() {
   if (!grid) return;
   grid.innerHTML = '';
 
+  // Prefer admin-managed testimonials; fall back to the built-in list.
+  const fromData = (window.SITE_DATA && Array.isArray(window.SITE_DATA.testimonials))
+    ? window.SITE_DATA.testimonials
+        .filter((t) => t.published !== false && t.text)
+        .slice()
+        .sort((a, b) => (a.order || 0) - (b.order || 0))
+        .map((t) => ({ name: t.name, initials: t.initials || (t.name || '★').charAt(0), text: t.text }))
+    : null;
+  const list = (fromData && fromData.length) ? fromData : REVIEWS;
+
   const googleSvg = `<svg viewBox="0 0 24 24" width="11" height="11" style="display:inline;vertical-align:-1px;margin-inline-end:3px" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.25 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>`;
 
-  REVIEWS.forEach(r => {
+  list.forEach(r => {
     const card = document.createElement('article');
     card.className = 'review-card reveal';
     card.innerHTML = `
       <div class="stars" aria-label="5 stars">★★★★★</div>
-      <blockquote>${r.text}</blockquote>
+      <blockquote>${escHtml(r.text)}</blockquote>
       <div class="review-meta">
-        <div class="review-avatar" aria-hidden="true">${r.initials}</div>
+        <div class="review-avatar" aria-hidden="true">${escHtml(r.initials)}</div>
         <div>
-          <div class="review-name">${r.name}</div>
+          <div class="review-name">${escHtml(r.name)}</div>
           <div class="review-source">${googleSvg}Google</div>
         </div>
       </div>`;
@@ -821,44 +930,38 @@ if (backToTop) {
 
 
 /* ===== GALLERY LIGHTBOX ===== */
-(function () {
-  const tiles      = [...document.querySelectorAll('.ig-tile[data-img]')];
-  const lightbox   = document.getElementById('lightbox');
-  const lbImg      = document.getElementById('lightboxImg');
-  const lbClose    = document.getElementById('lightboxClose');
-  const lbPrev     = document.getElementById('lightboxPrev');
-  const lbNext     = document.getElementById('lightboxNext');
-  if (!lightbox || !tiles.length) return;
+// Module-level so renderGallery() can re-bind tiles after rendering from data.
+let __lbImgs = [];
+let __lbCur = 0;
+let __lbWired = false;
 
-  const imgs = tiles.map(t => t.getAttribute('data-img'));
-  let cur = 0;
+function initLightbox() {
+  const tiles    = [...document.querySelectorAll('.ig-tile[data-img]')];
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
 
-  function open(i) {
-    cur = ((i % imgs.length) + imgs.length) % imgs.length;
-    lbImg.src = imgs[cur];
-    lightbox.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
-  function close() {
-    lightbox.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
+  __lbImgs = tiles.map(t => t.getAttribute('data-img'));
+  tiles.forEach((t, i) => { t.onclick = () => lbOpen(i); });
 
-  tiles.forEach((t, i) => t.addEventListener('click', () => open(i)));
-  lbClose.addEventListener('click', close);
-  lbNext.addEventListener('click', e => { e.stopPropagation(); open(cur + 1); });
-  lbPrev.addEventListener('click', e => { e.stopPropagation(); open(cur - 1); });
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+  if (__lbWired) return; // global listeners only once
+  __lbWired = true;
+
+  const lbClose = document.getElementById('lightboxClose');
+  const lbPrev  = document.getElementById('lightboxPrev');
+  const lbNext  = document.getElementById('lightboxNext');
+  if (lbClose) lbClose.addEventListener('click', lbClosize);
+  if (lbNext)  lbNext.addEventListener('click', e => { e.stopPropagation(); lbOpen(__lbCur + 1); });
+  if (lbPrev)  lbPrev.addEventListener('click', e => { e.stopPropagation(); lbOpen(__lbCur - 1); });
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lbClosize(); });
 
   document.addEventListener('keydown', e => {
     if (!lightbox.classList.contains('is-open')) return;
-    if (e.key === 'Escape') close();
+    if (e.key === 'Escape') lbClosize();
     const isRTL = document.documentElement.dir === 'rtl';
-    if (e.key === 'ArrowLeft')  open(isRTL ? cur + 1 : cur - 1);
-    if (e.key === 'ArrowRight') open(isRTL ? cur - 1 : cur + 1);
+    if (e.key === 'ArrowLeft')  lbOpen(isRTL ? __lbCur + 1 : __lbCur - 1);
+    if (e.key === 'ArrowRight') lbOpen(isRTL ? __lbCur - 1 : __lbCur + 1);
   });
 
-  /* Swipe support for mobile */
   let touchX = null;
   lightbox.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
   lightbox.addEventListener('touchend', e => {
@@ -867,9 +970,28 @@ if (backToTop) {
     touchX = null;
     if (Math.abs(dx) < 40) return;
     const isRTL = document.documentElement.dir === 'rtl';
-    open(dx < 0 ? (isRTL ? cur - 1 : cur + 1) : (isRTL ? cur + 1 : cur - 1));
+    lbOpen(dx < 0 ? (isRTL ? __lbCur - 1 : __lbCur + 1) : (isRTL ? __lbCur + 1 : __lbCur - 1));
   }, { passive: true });
-})();
+}
+
+function lbOpen(i) {
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  if (!lightbox || !lbImg || !__lbImgs.length) return;
+  __lbCur = ((i % __lbImgs.length) + __lbImgs.length) % __lbImgs.length;
+  lbImg.src = __lbImgs[__lbCur];
+  lightbox.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function lbClosize() {
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+  lightbox.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+initLightbox();
 
 
 /* ===== ACTIVE NAV SECTION ===== */

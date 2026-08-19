@@ -43,112 +43,259 @@
       "Thursday"
     ]
   },
+  "serviceCategories": [
+    {
+      "id": "treatments",
+      "order": 1,
+      "name": {
+        "he": "טיפולים",
+        "en": "Treatments",
+        "fr": "Soins",
+        "es": "Tratamientos",
+        "ar": "العلاجات"
+      }
+    },
+    {
+      "id": "addons",
+      "order": 2,
+      "name": {
+        "he": "תוספות",
+        "en": "Add-ons",
+        "fr": "Options",
+        "es": "Extras",
+        "ar": "الإضافات"
+      }
+    },
+    {
+      "id": "removal",
+      "order": 3,
+      "name": {
+        "he": "הסרה",
+        "en": "Removal",
+        "fr": "Retrait",
+        "es": "Retirada",
+        "ar": "الإزالة"
+      }
+    }
+  ],
   "services": [
     {
       "id": "basic",
       "category": "treatments",
+      "order": 1,
+      "published": true,
       "i18nKey": "srv.basic",
-      "price": "₪80"
+      "price": "₪80",
+      "name": {
+        "he": "מניקור בסיסי",
+        "en": "Basic Manicure",
+        "fr": "Manucure classique",
+        "es": "Manicura básica",
+        "ar": "مانيكير أساسي"
+      }
     },
     {
       "id": "gel",
       "category": "treatments",
+      "order": 2,
+      "published": true,
       "i18nKey": "srv.gel",
-      "price": "₪100"
+      "price": "₪100",
+      "name": {
+        "he": "מניקור עם לק ג'ל",
+        "en": "Manicure with Gel Polish",
+        "fr": "Manucure vernis gel",
+        "es": "Manicura con gel",
+        "ar": "مانيكير مع طلاء جل"
+      }
     },
     {
       "id": "anatomic",
       "category": "treatments",
+      "order": 3,
+      "published": true,
       "i18nKey": "srv.anatomic",
-      "price": "₪130"
+      "price": "₪130",
+      "name": {
+        "he": "מבנה אנטומי",
+        "en": "Anatomical Build",
+        "fr": "Construction anatomique",
+        "es": "Estructura anatómica",
+        "ar": "بناء تشريحي"
+      }
     },
     {
       "id": "fill",
       "category": "treatments",
+      "order": 4,
+      "published": true,
       "i18nKey": "srv.fill",
-      "price": "₪150"
+      "price": "₪150",
+      "name": {
+        "he": "מילוי בג'ל",
+        "en": "Gel Fill",
+        "fr": "Remplissage gel",
+        "es": "Relleno de gel",
+        "ar": "ملء الجل"
+      }
     },
     {
       "id": "newbuild",
       "category": "treatments",
+      "order": 5,
+      "published": true,
       "i18nKey": "srv.newbuild",
-      "price": "₪250"
+      "price": "₪250",
+      "name": {
+        "he": "בנייה חדשה",
+        "en": "New Build",
+        "fr": "Nouvelle construction",
+        "es": "Construcción nueva",
+        "ar": "بناء جديد"
+      }
     },
     {
       "id": "touchup",
       "category": "addons",
+      "order": 1,
+      "published": true,
       "i18nKey": "srv.touchup",
-      "price": "₪5 / ₪10"
+      "price": "₪5 / ₪10",
+      "name": {
+        "he": "השלמות",
+        "en": "Touch-ups",
+        "fr": "Retouches",
+        "es": "Retoques",
+        "ar": "اللمسات الأخيرة"
+      }
     },
     {
       "id": "french",
       "category": "addons",
+      "order": 2,
+      "published": true,
       "i18nKey": "srv.french",
-      "price": "₪20"
+      "price": "₪20",
+      "name": {
+        "he": "פרנץ' / אבקת פנינה",
+        "en": "French / Pearl Powder",
+        "fr": "French / Poudre nacre",
+        "es": "Francesa / Polvo nácar",
+        "ar": "فرنسي / بودرة لؤلؤ"
+      }
     },
     {
       "id": "design1",
       "category": "addons",
+      "order": 3,
+      "published": true,
       "i18nKey": "srv.design1",
-      "price": "₪5+"
+      "price": "₪5+",
+      "name": {
+        "he": "ציור על ציפורן אחד",
+        "en": "Design on one nail",
+        "fr": "Dessin sur un ongle",
+        "es": "Diseño en una uña",
+        "ar": "رسم على ظفر واحد"
+      }
     },
     {
       "id": "designall",
       "category": "addons",
+      "order": 4,
+      "published": true,
       "i18nKey": "srv.designall",
-      "price": "₪50+"
+      "price": "₪50+",
+      "name": {
+        "he": "ציור על כל הציפורים",
+        "en": "Simple design all nails",
+        "fr": "Dessin simple sur tous",
+        "es": "Diseño simple todas",
+        "ar": "رسم بسيط على الكل"
+      }
     },
     {
       "id": "removal",
       "category": "removal",
+      "order": 1,
+      "published": true,
       "i18nKey": "srv.removal",
-      "price": "₪50"
+      "price": "₪50",
+      "name": {
+        "he": "הסרה",
+        "en": "Removal",
+        "fr": "Retrait",
+        "es": "Retirada",
+        "ar": "إزالة"
+      }
     },
     {
       "id": "removalmanicure",
       "category": "removal",
+      "order": 2,
+      "published": true,
       "i18nKey": "srv.removalmanicure",
-      "price": "₪80"
+      "price": "₪80",
+      "name": {
+        "he": "הסרה ומניקור",
+        "en": "Removal + Manicure",
+        "fr": "Retrait + Manucure",
+        "es": "Retirada + Manicura",
+        "ar": "إزالة + مانيكير"
+      }
     }
   ],
   "gallery": [
-    {
-      "shortcode": "",
-      "image": "/images/nail1.jpg"
-    },
-    {
-      "shortcode": "",
-      "image": "/images/nail2.jpg"
-    },
-    {
-      "shortcode": "",
-      "image": "/images/nail3.jpg"
-    },
-    {
-      "shortcode": "",
-      "image": "/images/nail4.jpg"
-    },
-    {
-      "shortcode": "",
-      "image": "/images/nail5.jpg"
-    },
-    {
-      "shortcode": "",
-      "image": "/images/nail6.jpg"
-    },
-    {
-      "shortcode": "",
-      "image": "/images/nail7.jpg"
-    },
-    {
-      "shortcode": "",
-      "image": "/images/nail8.jpg"
-    }
+    { "id": "img-1", "image": "/images/nail1.jpg", "shortcode": "", "alt": "Classic gel manicure in Gan Yavne — Nailed it by Sarah", "order": 1, "published": true },
+    { "id": "img-2", "image": "/images/nail2.jpg", "shortcode": "", "alt": "Nail design — durable gel polish, Gan Yavne", "order": 2, "published": true },
+    { "id": "img-3", "image": "/images/nail3.jpg", "shortcode": "", "alt": "Nail art — anatomic build, Gan Yavne", "order": 3, "published": true },
+    { "id": "img-4", "image": "/images/nail4.jpg", "shortcode": "", "alt": "Gel fill — nail studio, Gan Yavne", "order": 4, "published": true },
+    { "id": "img-5", "image": "/images/nail5.jpg", "shortcode": "", "alt": "Gel manicure design — Nailed it by Sarah, Gan Yavne", "order": 5, "published": true },
+    { "id": "img-6", "image": "/images/nail6.jpg", "shortcode": "", "alt": "Nail art — anatomic build, Gan Yavne, Israel", "order": 6, "published": true },
+    { "id": "img-7", "image": "/images/nail7.jpg", "shortcode": "", "alt": "French manicure gel — professional nail studio, Gan Yavne", "order": 7, "published": true },
+    { "id": "img-8", "image": "/images/nail8.jpg", "shortcode": "", "alt": "Nail extension — gel fill, Nailed it by Sarah", "order": 8, "published": true }
   ],
   "reels": [
     "DX_tLfVqt6p",
     "DXcNxNqincL"
   ],
+  "about": {
+    "eyebrow": {
+      "he": "קצת על שרה",
+      "en": "About Sarah",
+      "fr": "À propos de Sarah",
+      "es": "Sobre Sarah",
+      "ar": "عن سارة"
+    },
+    "title": {
+      "he": "נייל ארט שנעשה מלב",
+      "en": "Nail art made with heart",
+      "fr": "Un nail art fait avec le cœur",
+      "es": "Nail art hecho con amor",
+      "ar": "فن الأظافر من القلب"
+    },
+    "bio": {
+      "he": "שרה גדלה בספרד, עברה ללונדון, והגיעה לגן יבנה אחרי שהתחתנה. אמנית מלידה — היא מביעה את עצמה דרך ציור, עיצוב, ומגע אנושי. נייל ארט הוא בשבילה עוד בד ריק שממתין לצבע.",
+      "en": "Sarah grew up in Spain, moved to London, and eventually made her home in Gan Yavne after getting married. An artist at heart — she expresses herself through painting, design, and human connection. Nail art is just another canvas.",
+      "fr": "Sarah a grandi en Espagne, vécu à Londres, puis s'est installée à Gan Yavne après son mariage. Artiste dans l'âme — elle s'exprime à travers la peinture, le design et le contact humain. Le nail art, c'est juste une toile de plus.",
+      "es": "Sarah creció en España, vivió en Londres y se instaló en Gan Yavne tras casarse. Artista de corazón — se expresa a través de la pintura, el diseño y el trato con las personas. El nail art es simplemente otro lienzo.",
+      "ar": "سارة نشأت في إسبانيا، وعاشت في لندن، ثم استقرت في غان يفنه بعد زواجها. فنانة بالفطرة — تعبّر عن نفسها من خلال الرسم والتصميم والتواصل مع الناس. فن الأظافر هو مجرد لوحة أخرى بالنسبة لها."
+    }
+  },
+  "testimonials": [
+    { "id": "eva-kahn", "name": "Eva Kahn", "initials": "E", "text": "Sarah is fantastic! She's so talented and really takes her time to make sure every detail is perfect. She's friendly, professional, and makes the whole experience so enjoyable. I always leave with nails I love and feel completely looked after. Couldn't recommend her enough!", "order": 1, "published": true },
+    { "id": "chawa-elburg", "name": "Chawa Elburg", "initials": "C", "text": "She is amazing! Such beautiful nails and great service.", "order": 2, "published": true },
+    { "id": "miriam-nahon", "name": "Miriam Nahon", "initials": "M", "text": "Love how Sarah did my nails, highly recommend!", "order": 3, "published": true },
+    { "id": "tair-bentata", "name": "Tair Bentata", "initials": "T", "text": "Great service! Nails stayed on for ages!!!", "order": 4, "published": true },
+    { "id": "miri-benzaquen", "name": "Miri Benzaquen", "initials": "M", "text": "Highly professional, knows how to do paintings and everything. Works clean and tidy. I found her by chance — I wouldn't replace her!", "order": 5, "published": true }
+  ],
+  "promotions": [],
+  "contact": {
+    "email": "",
+    "waMessage": "",
+    "tiktok": "",
+    "facebook": ""
+  },
   "instagram": "nailed_it_by.sarah",
   "updatedAt": "2026-05-25T15:04:02.331Z"
 }

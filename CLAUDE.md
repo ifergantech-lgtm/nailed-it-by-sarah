@@ -44,26 +44,42 @@ images/
 ```
 
 ## How the admin works
-1. Sarah opens `/admin` on her phone, enters password.
+1. Sarah opens `/admin` on her phone, logs in with **email + password**.
+   - `POST /api/login` verifies against `ADMIN_EMAIL` + `ADMIN_PASSWORD_HASH`
+     (scrypt) and sets an HMAC-signed, HttpOnly session cookie (`SESSION_SECRET`).
+   - The session lasts 30 days; `/api/session` resumes it, `/api/logout` clears it.
 2. Forms pre-fill from current `data.json`.
-3. On save, browser POSTs to `/api/save` → function:
-   - Validates password against `ADMIN_PASSWORD` env var
-   - Geocodes address via Nominatim (free OpenStreetMap)
-   - Extracts shortcodes from any Instagram URLs she pasted
+3. On save, browser POSTs to `/api/save` (cookie-authenticated — no password in
+   body) → function:
+   - Requires a valid session cookie (`getSession` in `lib/auth.js`)
+   - Assigns ids/order to services & categories; auto-translates any service or
+     category **name that changed** (English → HE/FR/ES/AR via MyMemory)
+   - Geocodes address via Nominatim; translates address/hours
    - Commits new `data.json` to GitHub using `GH_TOKEN`
 4. GitHub Action redeploys (~30–60 s).
-5. Site fetches new `data.json` and overlays new values on the DOM via `applySiteData()` in script.js.
+5. Site fetches new `data.json`; `applySiteData()` → `renderPriceBoard()` rebuilds
+   the whole price list from data (names, prices, categories, order, visibility).
+
+## Services are data-driven
+The price board in `index.html` is a static fallback; when `data.json` loads,
+`renderPriceBoard()` in `script.js` rebuilds it from `data.serviceCategories` +
+`data.services`. Each service has `{ id, category, order, published, price,
+name:{he,en,fr,es,ar} }`. This is what makes add/remove/reorder possible.
 
 ## Required Vercel env vars
 | Name | Purpose |
 |------|---------|
-| `ADMIN_PASSWORD` | Password Sarah types into `/admin` |
-| `GH_TOKEN`       | GitHub fine-grained PAT — `Contents: Write` on `ifergantech-lgtm/nailed-it-by-sarah` |
-| `GH_OWNER`       | `ifergantech-lgtm` (default fallback in code) |
-| `GH_REPO`        | `nailed-it-by-sarah` (default fallback in code) |
-| `GH_BRANCH`      | `master` (default fallback in code) |
+| `ADMIN_EMAIL`         | Email Sarah logs in with |
+| `ADMIN_PASSWORD_HASH` | scrypt hash from `scripts/hash-password.mjs` |
+| `SESSION_SECRET`      | random hex — signs the session cookie |
+| `GH_TOKEN`            | GitHub fine-grained PAT — `Contents: Write` on `ifergantech-lgtm/nailed-it-by-sarah` |
+| `GH_OWNER`            | `ifergantech-lgtm` (default fallback in code) |
+| `GH_REPO`             | `nailed-it-by-sarah` (default fallback in code) |
+| `GH_BRANCH`           | `master` (default fallback in code) |
 
-Set these at: https://vercel.com/tamars-projects-a5b1ebfe/nailed-it-by-sarah/settings/environment-variables
+`ADMIN_PASSWORD` (old single-password scheme) is retired. Full setup steps in
+`SETUP.md`. Set env vars at:
+https://vercel.com/tamars-projects-a5b1ebfe/nailed-it-by-sarah/settings/environment-variables
 
 ## Caveats (read before changing)
 - **Schemas (JSON-LD) don't auto-sync** with Sarah's edits — they're hardcoded in `index.html`. If she changes phone/address/hours/prices, the visible DOM updates but JSON-LD stays stale. To re-sync, manually edit index.html or run a sync script.
